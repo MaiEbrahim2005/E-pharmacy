@@ -1,27 +1,42 @@
 // src/pages/Register.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Login.css'; // نفس CSS بتاع اللوجين
+import './Login.css';
 
-export default function RegisterPage() {
+export default function RegisterPage({ onLogin }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // كود الريجستر هنا
-    console.log('Register:', { name, email, password });
+    setError('');
+
+    // التحقق من تطابق كلمات المرور
+    if (password !== confirmPassword) {
+      setError('Passwords do not match');
+      return;
+    }
+
+    // كود الريجستر البسيط من غير localStorage
+    console.log('Registration successful:', { name, email, password });
     
-    // بعد الريجستر الناجح
-    navigate('/login');
+    // تسجيل الدخول تلقائياً بعد التسجيل
+    if (onLogin) {
+      onLogin(); // استدعي دالة اللوجين من غير بيانات المستخدم
+    }
+    navigate('/shop'); // اذهبي للشوب مباشرة
   };
 
   return (
     <div className="auth-container">
       <form className="auth-form" onSubmit={handleSubmit}>
         <h2 className="auth-title">Create Account!</h2>
+
+        {error && <div className="error-message">{error}</div>}
 
         <input
           type="text"
@@ -47,6 +62,15 @@ export default function RegisterPage() {
           className="auth-input"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+
+        <input
+          type="password"
+          placeholder="Confirm Your Password"
+          className="auth-input"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
 

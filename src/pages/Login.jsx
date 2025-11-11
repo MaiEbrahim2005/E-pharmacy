@@ -3,18 +3,22 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
-export default function LoginPage() {
+export default function LoginPage({ onLogin }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // كود اللوجين هنا
+    
+    // كود اللوجين البسيط من غير localStorage
     console.log('Login:', email, password);
     
     // بعد اللوجين الناجح
-    navigate('/shop');
+    if (onLogin) {
+      onLogin(); // استدعي دالة اللوجين
+    }
+    navigate('/shop'); // اذهبي للشوب مباشرة
   };
 
   return (
@@ -54,12 +58,12 @@ export default function LoginPage() {
 
         <div className="auth-link">
           <p>
-            Join now, create your 
+            Don't have an account? 
             <span 
               style={{color: '#6C4ED9', cursor: 'pointer', fontWeight: '600'}} 
-              onClick={() => navigate('/register')}  // هذا السطر المعدل
+              onClick={() => navigate('/register')}
             >
-              {' '}FREE account
+              {' '}Register here
             </span>
           </p>
         </div>

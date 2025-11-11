@@ -1,10 +1,12 @@
 // src/pages/ShopPage.jsx
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './ShopPage.css';
 
-const ShopPage = ({ onAddToCart, onOrderComplete }) => {
+const ShopPage = ({ onAddToCart }) => {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [priceRange, setPriceRange] = useState([0, 100]);
+  const navigate = useNavigate();
 
   // بيانات المنتجات
   const products = [
@@ -118,6 +120,38 @@ const ShopPage = ({ onAddToCart, onOrderComplete }) => {
     setSelectedCategory(selectedCategory === category ? '' : category);
   };
 
+  // دالة إضافة المنتج للعربة
+  const handleAddToCart = (product) => {
+    // جلب العربة الحالية من localStorage
+    const currentCart = JSON.parse(localStorage.getItem('cart') || '[]');
+    
+    // التحقق إذا المنتج موجود بالفعل
+    const existingItem = currentCart.find(item => item.id === product.id);
+    
+    let updatedCart;
+    if (existingItem) {
+      // زيادة الكمية إذا المنتج موجود
+      updatedCart = currentCart.map(item =>
+        item.id === product.id 
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      );
+    } else {
+      // إضافة منتج جديد
+      updatedCart = [...currentCart, { ...product, quantity: 1 }];
+    }
+    
+    // حفظ العربة المحدثة في localStorage
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    
+    // تحديث العداد في الـ Navbar
+    if (onAddToCart) {
+      onAddToCart();
+    }
+    
+    console.log('Added to cart:', product.name);
+  };
+
   return (
     <div className="shop-page">
       <div className="shop-container">
@@ -165,13 +199,6 @@ const ShopPage = ({ onAddToCart, onOrderComplete }) => {
 
         {/* Main Content - المنتجات */}
         <div className="shop-main">
-          {/* Header */}
-          <div className="shop-header">
-            <div className="sorting">
-              <span>Default Sorting</span>
-            </div>
-          </div>
-
           {/* Products Grid */}
           <div className="products-grid">
             {filteredProducts.map(product => (
@@ -187,22 +214,12 @@ const ShopPage = ({ onAddToCart, onOrderComplete }) => {
                 <div className="product-price">${product.price.toFixed(2)}</div>
                 <button 
                   className="add-to-cart-btn" 
-                  onClick={onAddToCart}
+                  onClick={() => handleAddToCart(product)}
                 >
                   Add to cart
                 </button>
               </div>
             ))}
-          </div>
-
-          {/* الزر التجريبي */}
-          <div className="test-order-section">
-            <button 
-              className="test-order-btn"
-              onClick={() => onOrderComplete && onOrderComplete()}
-            >
-              Complete Order (Test Thank You Page)
-            </button>
           </div>
 
           {/* Pagination */}

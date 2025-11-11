@@ -1,7 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; // أضيفي هذا السطر
 import './ThankYouPage.css';
 
-const ThankYouPage = ({ onBackToHome }) => {
+const ThankYouPage = () => { // احذفي onBackToHome من الـ props
+  const navigate = useNavigate(); // أضيفي useNavigate
+
+  const handleBackToHome = () => {
+    navigate('/home'); // اذهبي للهوم مباشرة
+  };
+
   return (
     <div className="thank-you-page">
       <div className="thank-you-container">
@@ -14,7 +21,7 @@ const ThankYouPage = ({ onBackToHome }) => {
 
         <button 
           className="back-to-home-btn"
-          onClick={onBackToHome}
+          onClick={handleBackToHome} 
         >
           Back to Home
         </button>

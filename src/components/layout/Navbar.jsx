@@ -1,15 +1,34 @@
 // src/components/layout/Navbar.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FiSearch, FiShoppingCart, FiUser, FiX } from 'react-icons/fi';
-import { useNavigate } from 'react-router-dom';  // أضيفي هذا السطر
+import { useNavigate, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = ({ cartCount }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState('shop');
+  const [activeLink, setActiveLink] = useState('home');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const navigate = useNavigate();  // أضيفي هذا السطر
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // تحديد الـ active link بناءً على الـ URL الحالي
+  useEffect(() => {
+    const path = location.pathname;
+    if (path === '/' || path === '/home') setActiveLink('home');
+    else if (path === '/about') setActiveLink('about');
+    else if (path === '/services') setActiveLink('services');
+    else if (path === '/shop') setActiveLink('shop');
+    else if (path === '/faq') setActiveLink('faq');
+    else if (path === '/contact') setActiveLink('contact');
+    else if (path === '/cart') setActiveLink('cart');
+  }, [location.pathname]);
+
+  const handleNavigation = (path, linkName) => {
+    navigate(path);
+    setActiveLink(linkName);
+    setIsMenuOpen(false);
+  };
 
   return (
     <nav className="navbar">
@@ -19,49 +38,86 @@ const Navbar = ({ cartCount }) => {
           <img src="src/assets/images/logo.png" alt="Pharmez Logo" />
         </div>
         
-        {/* القائمة */}
+        {/* القائمة - معدلة */}
         <ul className="nav-menu">
-          {['home', 'about', 'services', 'shop', 'faq', 'contact'].map((item) => (
-            <li key={item}>
-              <a 
-                href={`#${item}`}
-                className={activeLink === item ? 'active' : ''}
-                onClick={() => setActiveLink(item)}
-              >
-                {item.charAt(0).toUpperCase() + item.slice(1)}
-              </a>
-            </li>
-          ))}
+          <li>
+            <a 
+              className={activeLink === 'home' ? 'active' : ''}
+              onClick={() => handleNavigation('/', 'home')}
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a 
+              className={activeLink === 'about' ? 'active' : ''}
+              onClick={() => handleNavigation('/about', 'about')}
+            >
+              About
+            </a>
+          </li>
+          <li>
+            <a 
+              className={activeLink === 'services' ? 'active' : ''}
+              onClick={() => handleNavigation('/services', 'services')}
+            >
+              Services
+            </a>
+          </li>
+          <li>
+            <a 
+              className={activeLink === 'shop' ? 'active' : ''}
+              onClick={() => handleNavigation('/shop', 'shop')}
+            >
+              Shop
+            </a>
+          </li>
+          <li>
+            <a 
+              className={activeLink === 'faq' ? 'active' : ''}
+              onClick={() => handleNavigation('/faq', 'faq')}
+            >
+              FAQ
+            </a>
+          </li>
+          <li>
+            <a 
+              className={activeLink === 'contact' ? 'active' : ''}
+              onClick={() => handleNavigation('/contact', 'contact')}
+            >
+              Contact
+            </a>
+          </li>
         </ul>
         
         {/* الأيقونات */}
         <div className="nav-icons">
-          {/* أيقونة البحث */}
           <button onClick={() => setIsSearchOpen(!isSearchOpen)}>
             {isSearchOpen ? <FiX /> : <FiSearch />}
           </button>
           
-          {/* أيقونة العربة مع العداد */}
-          <button className="cart-icon">
+          {/* أيقونة العربة */}
+          <button 
+            className={`cart-icon ${activeLink === 'cart' ? 'active' : ''}`}
+            onClick={() => handleNavigation('/cart', 'cart')}
+          >
             <FiShoppingCart />
             {cartCount > 0 && (
               <span className="cart-count">{cartCount}</span>
             )}
           </button>
           
-          {/* أيقونة المستخدم - معدلة */}
           <button onClick={() => navigate('/login')}>
             <FiUser />
           </button>
         </div>
         
-        {/* زر الموبايل */}
         <div className="mobile-menu-btn" onClick={() => setIsMenuOpen(!isMenuOpen)}>
           ☰
         </div>
       </div>
       
-      {/* شريط البحث اللي هيظهر */}
+      {/* شريط البحث */}
       {isSearchOpen && (
         <div className="search-bar">
           <input 
@@ -80,32 +136,50 @@ const Navbar = ({ cartCount }) => {
         </div>
       )}
       
-      {/* القائمة للـ mobile */}
+      {/* القائمة للـ mobile - معدلة */}
       {isMenuOpen && (
         <div className="mobile-menu">
-          {['home', 'about', 'services', 'faq', 'shop', 'contact'].map((item) => (
-            <a 
-              key={item}
-              href={`#${item}`}
-              className={activeLink === item ? 'active' : ''}
-              onClick={() => {
-                setActiveLink(item);
-                setIsMenuOpen(false);
-              }}
-            >
-              {item.charAt(0).toUpperCase() + item.slice(1)}
-            </a>
-          ))}
-          {/* إضافة اللوجين في الموبايل مينيو */}
           <a 
-            href="#login"
-            onClick={(e) => {
-              e.preventDefault();
-              navigate('/login');
-              setIsMenuOpen(false);
-            }}
+            className={activeLink === 'home' ? 'active' : ''}
+            onClick={() => handleNavigation('/', 'home')}
           >
-            Login
+            Home
+          </a>
+          <a 
+            className={activeLink === 'about' ? 'active' : ''}
+            onClick={() => handleNavigation('/about', 'about')}
+          >
+            About
+          </a>
+          <a 
+            className={activeLink === 'services' ? 'active' : ''}
+            onClick={() => handleNavigation('/services', 'services')}
+          >
+            Services
+          </a>
+          <a 
+            className={activeLink === 'shop' ? 'active' : ''}
+            onClick={() => handleNavigation('/shop', 'shop')}
+          >
+            Shop
+          </a>
+          <a 
+            className={activeLink === 'faq' ? 'active' : ''}
+            onClick={() => handleNavigation('/faq', 'faq')}
+          >
+            FAQ
+          </a>
+          <a 
+            className={activeLink === 'contact' ? 'active' : ''}
+            onClick={() => handleNavigation('/contact', 'contact')}
+          >
+            Contact
+          </a>
+          <a 
+            className={activeLink === 'cart' ? 'active' : ''}
+            onClick={() => handleNavigation('/cart', 'cart')}
+          >
+            Cart ({cartCount})
           </a>
         </div>
       )}

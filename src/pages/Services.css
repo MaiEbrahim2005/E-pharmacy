@@ -1,0 +1,154 @@
+/* ===== Services Page Styles ===== */
+.services-page {
+  background-color: #ffffff;
+  padding-top: 120px; /* لضبط المسافة من Navbar */
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+  margin: 0;
+}
+
+/* ===== Section Header (البنفسجي ممتد) ===== */
+/* ===== Section Header (البنفسجي) ===== */
+.services-header {
+  background-color: #6C4ED9;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  margin: 0 0 40px 0;
+  padding: 60px 60px; /* padding أكبر فوق/تحت لتكبير القسم */
+  min-height: 40vh; /* ارتفاع نسبي على الأقل 40% من ارتفاع الشاشة */
+  border-radius: 0;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* لمركزية النص عموديًا */
+}
+
+
+
+.services-header h1 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.services-header p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* ===== Breadcrumb ===== */
+.breadcrumb {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  color: #fff;
+  opacity: 0.9;
+}
+
+.breadcrumb a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+  opacity: 1;
+}
+
+.breadcrumb span {
+  color: #ddd;
+}
+
+/* ===== Extra Services Section ===== */
+.extra-services {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 0 20px 80px;
+}
+
+/* ===== Extra Card ===== */
+.extra-card {
+  background-color: #ffffff;
+  border: 1px solid #eee;
+  border-radius: 16px;
+  flex: 1 1 220px; /* responsive */
+  max-width: 250px;
+  text-align: center;
+  padding: 25px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.extra-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+  font-size: 35px;
+  color: #6C4ED9;
+  margin-bottom: 15px;
+}
+
+.extra-card h4 {
+  color: #333;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.extra-card p {
+  color: #666;
+  font-size: 14px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .services-header h1 {
+    font-size: 36px;
+  }
+  .services-header p {
+    font-size: 16px;
+  }
+  .extra-card {
+    flex: 1 1 200px;
+    max-width: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-header {
+    padding: 80px 15px;
+  }
+  .services-header h1 {
+    font-size: 30px;
+  }
+  .services-header p {
+    font-size: 15px;
+  }
+  .extra-services {
+    gap: 20px;
+  }
+  .extra-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-header {
+    padding: 60px 10px;
+  }
+  .services-header h1 {
+    font-size: 26px;
+  }
+  .services-header p {
+    font-size: 14px;
+  }
+}

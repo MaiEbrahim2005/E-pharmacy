@@ -43,16 +43,13 @@ const Footer = () => {
             </li>
             <li>
               <FiArrowRight className="nav-arrow" />
-              <a href="#shop">Shop</a>
+              <a href="#ShopPage">Shop</a>
             </li>
             <li>
               <FiArrowRight className="nav-arrow" />
               <a href="#team">Team</a>
             </li>
-            <li>
-              <FiArrowRight className="nav-arrow" />
-              <a href="#blog">Blog</a>
-            </li>
+            
           </ul>
         </div>
 
