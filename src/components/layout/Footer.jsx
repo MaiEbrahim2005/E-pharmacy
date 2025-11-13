@@ -7,11 +7,10 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-container">
         
-        {/* القسم الأول: الشعار والنشر */}
         <div className="footer-section">
           <div className="logo-section">
             <img src="/src/assets/images/footer-icon.png" alt="Pharmez" className="footer-logo-img" />
-            <h2 className="footer-logo-text">Pharmez</h2>
+            <a href='#home' className="footer-logo-text">Pharmez</a>
           </div>
           
           <div className="newsletter">
@@ -28,46 +27,43 @@ const Footer = () => {
             </div>
           </div>
         </div>
-
-        {/* القسم الثاني: التنقل */}
+        
         <div className="footer-section navigation-section">
           <h3 className="section-title">Navigation</h3>
           <ul className="nav-links">
             <li>
               <FiArrowRight className="nav-arrow" />
-              <a href="#home">Home</a>
+              <a href="#e">Home</a>
             </li>
             <li>
               <FiArrowRight className="nav-arrow" />
-              <a href="#about">About</a>
+              <a href="#t">About</a>
             </li>
             <li>
               <FiArrowRight className="nav-arrow" />
-              <a href="#ShopPage">Shop</a>
+              <a href="#">Shop</a>
             </li>
             <li>
               <FiArrowRight className="nav-arrow" />
-              <a href="#team">Team</a>
+              <a href="#">Services</a>
             </li>
-            
           </ul>
         </div>
 
-        {/* القسم الثالث: معلومات الاتصال + السوشيال ميديا */}
         <div className="footer-section">
           <h3 className="section-title">Contact Info</h3>
           <div className="contact-info">
             <div className="contact-item">
               <FiPhone className="contact-icon" />
-              <a href="tel:+61383766284">+61.3 8376 6284</a>
-            </div>
+              <a href="tel:+61383766284">+20 100 456 7890</a>
+            </div> 
             <div className="contact-item">
               <FiMail className="contact-icon" />
               <a href="mailto:info@pharmez.com">info@pharmez.com</a>
             </div>
             <div className="contact-item">
               <FiMapPin className="contact-icon" />
-              <a href="#" className="address-link">21 King Street Melbourne, 3000, Australia</a>
+              <a href="#" className="address-link">21 El Tahrir Street, Cairo, Egypt</a>
             </div>
             <div className="contact-item">
               <FiClock className="contact-icon" />
@@ -75,26 +71,24 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* أيقونات السوشيال ميديا جمب الكونتاكت */}
           <div className="social-icons">
-            <a href="#" className="social-icon">
+            <a href="https://www.facebook.com/Pharmez" className="social-icon" target="_blank" rel="noopener noreferrer">
               <FiFacebook />
             </a>
-            <a href="#" className="social-icon">
+            <a href="https://www.linkedin.com/in/Pharmez" className="social-icon" target="_blank" rel="noopener noreferrer">
               <FiLinkedin />
             </a>
-            <a href="#" className="social-icon">
+            <a href="https://www.instagram.com/Pharmez" className="social-icon" target="_blank" rel="noopener noreferrer">
               <FiInstagram />
             </a>
-            <a href="#" className="social-icon">
+            <a href="https://twitter.com/Pharmez" className="social-icon" target="_blank" rel="noopener noreferrer">
               <FiTwitter />
             </a>
           </div>
-        </div>
+        </div> 
 
       </div>
 
-      {/* الكوبي رايت في سطر منفصل */}
       <div className="copyright-section">
         <p className="copyright">
           Copyright © 2025 Pharmez. All Rights Reserved.

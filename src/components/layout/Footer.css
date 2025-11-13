@@ -1,26 +1,26 @@
 .footer {
   background: #000000;
-  padding: 200px 20px 80px; /* طويل قوي من فوق */
+  padding: 200px 20px 80px;
   color: white;
   border-radius: 30px 30px 30px 30px;
-  margin-top: 0; /* أزلنا الـ margin */
+  margin-top: 0;
+  margin: 20px;
 }
 
 .footer-container {
-  max-width: 1400px; /* كبرنا الكونتينر */
+  max-width: 1400px; 
   margin: 0 auto;
   display: grid;
   grid-template-columns: 2fr 0.8fr 1.2fr;
-  gap: 60px; /* كبرنا المسافات بين الأقسام */
+  gap: 60px; 
   margin-bottom: 40px;
 }
 
-.footer-section {
+.footer-section { 
   display: flex;
   flex-direction: column;
 }
 
-/* الشعار - كبرنا قوي */
 .logo-section {
   display: flex;
   align-items: center;
@@ -29,24 +29,24 @@
 }
 
 .footer-logo-img {
-  width: 80px; /* كبرنا اللوجو */
+  width: 80px;
   height: 80px;
 }
 
 .footer-logo-text {
-  font-size: 64px; /* كبرنا كلمة فارما قوي */
+  font-size: 74px;
   font-weight: bold;
   color: white;
   transition: color 0.3s ease;
+  text-decoration: none;
 }
 
 .logo-section:hover .footer-logo-text {
   color: #8a2be2;
 }
 
-/* النشرة البريدية - كبرنا */
 .newsletter-title {
-  font-size: 20px; /* كبرنا العنوان */
+  font-size: 20px; 
   font-weight: 600;
   margin-bottom: 25px;
   text-align: left;
@@ -60,10 +60,10 @@
 
 .email-field {
   flex: 1;
-  padding: 16px 25px; /* كبرنا الانبوت */
+  padding: 16px 25px;
   border: none;
   border-radius: 30px;
-  font-size: 16px; /* كبرنا الخط */
+  font-size: 16px;
   background: rgba(255, 255, 255, 0.1);
   color: white;
 }
@@ -78,7 +78,7 @@
 }
 
 .subscribe-btn {
-  padding: 25px; /* كبرنا الزر الدائري */
+  padding: 25px; 
   background: #fdf485;
   border: none;
   border-radius: 50%;
@@ -95,7 +95,7 @@
 }
 
 .send-icon {
-  font-size: 24px; /* كبرنا الأيقونة */
+  font-size: 24px;
   color: #333;
   transition: color 0.3s ease;
 }
@@ -104,13 +104,12 @@
   color: white;
 }
 
-/* التنقل - كبرنا */
 .navigation-section {
-  margin-left: 40px; /* أبعدنا أكثر */
+  margin-left: 40px; 
 }
 
 .section-title {
-  font-size: 22px; /* كبرنا العناوين */
+  font-size: 22px; 
   font-weight: 600;
   margin-bottom: 25px;
   text-align: left;
@@ -130,7 +129,7 @@
 }
 
 .nav-arrow {
-  font-size: 18px; /* كبرنا السهم */
+  font-size: 18px; 
   color: white;
   transition: color 0.3s ease;
 }
@@ -138,7 +137,7 @@
 .nav-links a {
   text-decoration: none;
   color: rgba(255, 255, 255, 0.8);
-  font-size: 16px; /* كبرنا الخط */
+  font-size: 16px; 
   transition: color 0.3s ease;
 }
 
@@ -150,7 +149,6 @@
   color: #fdf485;
 }
 
-/* معلومات الاتصال - كبرنا */
 .contact-info {
   margin-bottom: 30px;
 }
@@ -160,7 +158,7 @@
   align-items: flex-start;
   gap: 15px;
   margin-bottom: 20px;
-  font-size: 16px; /* كبرنا الخط */
+  font-size: 16px; 
   transition: color 0.3s ease;
   cursor: pointer;
 }
@@ -168,7 +166,7 @@
 .contact-item a{
   text-decoration: none;
   color: #fff;
-  font-size: 16px; /* كبرنا الخط */
+  font-size: 16px;
 }
 
 .contact-item:hover {
@@ -176,7 +174,7 @@
 }
 
 .contact-icon {
-  font-size: 20px; /* كبرنا الأيقونات */
+  font-size: 20px; 
   color: white;
   margin-top: 2px;
   flex-shrink: 0;
@@ -193,7 +191,6 @@
   cursor: pointer;
 }
 
-/* أيقونات السوشيال ميديا - كبرنا */
 .social-icons {
   display: flex;
   gap: 15px;
@@ -201,17 +198,17 @@
 }
 
 .social-icon {
-  width: 50px; /* كبرنا الأيقونات */
+  width: 50px; 
   height: 50px;
   border-radius: 50%;
-  border: 2px solid #444; /* كبرنا البوردر */
+  border: 2px solid #444; 
   background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
   color: white;
-  font-size: 22px; /* كبرنا الأيقونات */
+  font-size: 22px; 
   transition: all 0.3s ease;
 }
 
@@ -222,7 +219,6 @@
   border-color: #5c45bf;
 }
 
-/* قسم الكوبي رايت - كبرنا */
 .copyright-section {
   border-top: 2px solid rgba(255, 255, 255, 0.1);
   padding-top: 25px;
@@ -230,44 +226,88 @@
 }
 
 .copyright {
-  font-size: 16px; /* كبرنا الخط */
+  font-size: 16px; 
   color: rgba(255, 255, 255, 0.5);
   margin: 0;
   font-weight: 300;
 }
 
-/* التصميم المتجاوب */
+/* Resonsive Design*/
 @media (max-width: 768px) {
   .footer {
-    padding: 100px 15px 30px;
+    padding: 60px 20px 30px;
+    border-radius: 20px;
   }
-  
+
   .footer-container {
     grid-template-columns: 1fr;
     gap: 40px;
-    max-width: 100%;
   }
-  
+
+  .logo-section {
+    justify-content: center;
+    text-align: center;
+  }
+
   .footer-logo-text {
-    font-size: 48px;
+    font-size: 42px;
   }
-  
-  .footer-logo-img {
+
+  .newsletter-title,
+  .section-title {
+    text-align: center;
+  }
+
+  .email-input {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .subscribe-btn {
     width: 60px;
     height: 60px;
   }
-  
+
+  .nav-links,
+  .contact-info {
+    text-align: center;
+  }
+
+  .nav-links li,
+  .contact-item,
+  .social-icons {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1100px) {
+  .footer {
+    padding: 80px 25px 50px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1.5fr 1fr;
+    gap: 40px;
+    justify-content: space-between;
+  }
+
+  .footer-logo-text {
+    font-size: 60px;
+  }
+
+  .newsletter-title {
+    font-size: 18px;
+  }
+
+  .email-field {
+    padding: 14px 20px;
+  }
+
+  .subscribe-btn {
+    padding: 20px;
+  }
+
   .navigation-section {
     margin-left: 0;
-  }
-  
-  .email-input {
-    flex-direction: column;
-  }
-  
-  .subscribe-btn {
-    width: 70px;
-    height: 70px;
-    align-self: center;
   }
 }
