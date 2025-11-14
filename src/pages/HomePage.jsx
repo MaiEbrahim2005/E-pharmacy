@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/HomeVariables.css";
 import HeroSection from "../components/Home/HeroSection";
 import ServicesSection from "../components/Home/ServicesSection";
 import CategoriesSection from "../components/Home/CategoriesSection";
@@ -10,7 +11,7 @@ import Testimonials from "../components/Home/Testimonials";
 
 const HomePage = () => {
   return (
-    <>
+    <div className="home-root">
       <HeroSection />
       <ServicesSection />
       <CategoriesSection />
@@ -19,9 +20,8 @@ const HomePage = () => {
       <BestSelling />
       <Offers />
       <Testimonials />
-    </>
+    </div>
   );
 }; 
 
-export default HomePage;    
-
+export default HomePage;

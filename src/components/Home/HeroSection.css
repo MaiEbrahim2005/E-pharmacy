@@ -1,5 +1,5 @@
 .hero-section {
-  background: var(--purple-dark);
+  background: var(--home-purple-dark);
   min-height: 100vh;
   padding: 3rem 40px;
   position: relative;
@@ -16,7 +16,7 @@
 }
 
 .right-content {
-  color: var(--white);
+  color: var(--home-white);
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -31,11 +31,11 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  background: var(--white-10);
+  background: var(--home-white-10);
   padding: 0.8rem 2rem;
   border-radius: 25px;
   backdrop-filter: blur(10px);
-  border: 1px solid var(--white-20); 
+  border: 1px solid var(--home-white-20); 
   justify-content: flex-start;
   width: fit-content;
 }
@@ -43,7 +43,7 @@
 .dot {
   width: 8px;
   height: 8px;
-  background: var(--white);
+  background: var(--home-white);
   border-radius: 50%;
 }
 
@@ -58,7 +58,7 @@
   line-height: 1.1;
   margin-bottom: 6.5rem;
   margin-top: 1.6rem;
-  color: var(--white);
+  color: var(--home-white);
   text-align: left;
 }
 
@@ -72,19 +72,19 @@
   height: 480px;
   object-fit: cover;
   border-radius: 25px;
-  border: 2px solid var(--white-30);
+  border: 2px solid var(--home-white-30);
   margin-top: 17px;
 }
 
 .image-placeholder.large {
-  background: var( --white-10);
-  border: 2px dashed var(--white-30);
+  background: var(--home-white-10);
+  border: 2px dashed var(--home-white-30);
   border-radius: 25px;
   height: 380px;
   display: none;
   align-items: center;
   justify-content: center;
-  color: var(--white);
+  color: var(--home-white);
   font-weight: 500;
   font-size: 1.1rem;
   backdrop-filter: blur(10px);
@@ -102,7 +102,7 @@
   display: flex;
   align-items: center;
   gap: 1.2rem;
-  background: var(--white-10);
+  background: var(--home-white-10);
   padding: 1.2rem 1.8rem;
   border-radius: 20px;
   backdrop-filter: blur(10px);
@@ -118,8 +118,8 @@
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  background: var(--white-20);
-  border: 2px solid var(--purple-dark);
+  background: var(--home-white-20);
+  border: 2px solid var(--home-purple-dark);
   margin-left: -13px;
   position: relative;
   object-fit: cover;
@@ -135,23 +135,23 @@
 .circle-img:nth-child(4) { z-index: 1; }
 
 .clients-info {
-  color: var(--white);
+  color: var(--home-white);
 }
 
 .clients-number {
   font-size: 1.6rem;
   font-weight: 700;
-  color: var(--gold);
+  color: var(--home-gold);
 }
 
 .clients-text {
   font-size: 0.9rem;
-  color: var(--white-90);
+  color: var(--home-white-90);
   white-space: nowrap;
 }
 
 .hero-description {
-  color: var(--white-90);
+  color: var(--home-white-90);
   font-size: 1.5rem;
   font-weight: 600;
   line-height: 1.6;
@@ -167,8 +167,8 @@
 }
 
 .btn-shop {
-  background: var(--yellow-light);
-  color: var(--purple-dark);
+  background: var(--home-yellow-light);
+  color: var(--home-purple-dark);
   border: none;
   padding: 1rem 2.2rem;
   font-size: 1rem;
@@ -181,13 +181,13 @@
 
 .btn-shop:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px var(--gold-light-30);
+  box-shadow: 0 5px 15px var(--home-gold-light-30);
 }
 
 .btn-upload {
   background: transparent;
-  color: var(--white);
-  border: 2px solid var(--white);
+  color: var(--home-white);
+  border: 2px solid var(--home-white);
   padding: 1rem 1.8rem;
   font-size: 1rem;
   font-weight: 600;
@@ -201,8 +201,8 @@
 }
 
 .btn-upload:hover {
-  background: var(--white);
-  color: var(--purple-dark);
+  background: var(--home-white);
+  color: var(--home-purple-dark);
   transform: translateY(-2px);
 }
 
@@ -220,19 +220,19 @@
   height: 480px;
   object-fit: cover;
   border-radius: 20px;
-  border: 2px solid var(--white-30);
-  background: var(--white-50); 
+  border: 2px solid var(--home-white-30);
+  background: var(--home-white-50); 
 }
 
 .image-placeholder.small {
-  background: var(--white-10);
-  border: 2px dashed var(--white-30);
+  background: var(--home-white-10);
+  border: 2px dashed var(--home-white-30);
   border-radius: 20px;
   height: 280px;
   display: none;
   align-items: center;
   justify-content: center;
-  color: var(--white);
+  color: var(--home-white);
   font-weight: 500;
   backdrop-filter: blur(10px);
 }

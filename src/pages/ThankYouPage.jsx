@@ -1,12 +1,12 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // أضيفي هذا السطر
+import { useNavigate } from 'react-router-dom'; 
 import './ThankYouPage.css';
 
-const ThankYouPage = () => { // احذفي onBackToHome من الـ props
-  const navigate = useNavigate(); // أضيفي useNavigate
+const ThankYouPage = () => { 
+  const navigate = useNavigate(); 
 
   const handleBackToHome = () => {
-    navigate('/home'); // اذهبي للهوم مباشرة
+    navigate('/home'); 
   };
 
   return (

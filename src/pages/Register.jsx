@@ -1,4 +1,3 @@
-// src/pages/Register.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
@@ -15,20 +14,16 @@ export default function RegisterPage({ onLogin }) {
     e.preventDefault();
     setError('');
 
-    // التحقق من تطابق كلمات المرور
     if (password !== confirmPassword) {
       setError('Passwords do not match');
       return;
     }
-
-    // كود الريجستر البسيط من غير localStorage
     console.log('Registration successful:', { name, email, password });
     
-    // تسجيل الدخول تلقائياً بعد التسجيل
     if (onLogin) {
-      onLogin(); // استدعي دالة اللوجين من غير بيانات المستخدم
+      onLogin(); 
     }
-    navigate('/shop'); // اذهبي للشوب مباشرة
+    navigate('/home'); 
   };
 
   return (

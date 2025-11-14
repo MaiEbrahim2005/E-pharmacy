@@ -4,7 +4,6 @@ import './services.css';
 export default function Services() {
   return (
     <div className="services-page">
-      {/* ===== Section Header ===== */}
       <section className="services-header">
         <h1>Services</h1>
         <p>
@@ -18,7 +17,6 @@ export default function Services() {
         </div>
       </section>
 
-      {/* ===== Extra Service Features ===== */}
       <section className="extra-services">
         <div className="extra-card">
           <div className="icon">📦</div>

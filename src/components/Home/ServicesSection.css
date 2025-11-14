@@ -1,6 +1,6 @@
 .services-section {
   padding: 40px 20px;
-  background: var(--white);
+  background: var(--home-white);
 }
 
 .services-container {
@@ -27,8 +27,8 @@
 .service-icon-wrapper {
   width: 60px;
   height: 60px;
-  background: var(--white);
-  border: 1px solid var(--purple-dark);
+  background: var(--home-white);
+  border: 1px solid var(--home-purple-dark);
   border-radius: 50%;
   margin-right: 15px;
   flex-shrink: 0;
@@ -36,13 +36,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--purple-dark);
+  color: var(--home-purple-dark);
   font-size: 20px;
 }
 
 .service-item:hover .service-icon-wrapper {
-  background: var(--purple-dark);
-  color: var(--white);
+  background: var(--home-purple-dark);
+  color: var(--home-white);
   transform: scale(1.1);
   cursor: cell;
 }
@@ -55,14 +55,14 @@
   font-size: 16px;
   font-weight: 600;
   margin: 0 0 5px 0;
-  color: var(--gray-333);
+  color: var(--home-gray-333);
   line-height: 1.3;
 }
 
 .service-text p {
   font-size: 14px;
   margin: 0;
-  color: var(--gray-666);
+  color: var(--home-gray-666);
   line-height: 1.4;
 }
 
@@ -83,4 +83,3 @@
     margin-right: 15px;
   }
 }
-

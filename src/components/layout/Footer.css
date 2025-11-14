@@ -232,7 +232,7 @@
   font-weight: 300;
 }
 
-/* Resonsive Design*/
+
 @media (max-width: 768px) {
   .footer {
     padding: 60px 20px 30px;

@@ -1,0 +1,38 @@
+.home-root { 
+    --home-white: #ffffff;
+    --home-light-gray: #f1f5f9;
+    --home-gray-ccc: #ccc;
+
+    --home-white-90: rgba(255,255,255,0.9); 
+    --home-white-80: rgba(255,255,255,0.8); 
+    --home-white-50: rgba(255,255,255,0.5);
+    --home-white-30: rgba(255,255,255,0.3);
+    --home-white-20: rgba(255,255,255,0.2);
+    --home-white-15: rgba(255,255,255,0.15);
+    --home-white-10: rgba(255,255,255,0.1);  
+
+    --home-purple-dark: #5c45bf; 
+    --home-purple-trans: rgba(92,69,191,0.5);  
+
+    --home-gold: #FFD700;
+    --home-yellow-light: #fdf485;
+    --home-baby-yellow: #faf6d5;
+    --home-yellow-soft: rgba(253,244,133,0.3);
+    --home-gold-light-30: rgba(255,215,0,0.3);
+    
+    --home-pink-soft: #dd78a0; 
+
+    --home-black: #000000;
+    --home-gray-333: #333;
+    --home-gray-444: #444;
+    --home-gray-666: #666;
+    --home-gray-999: #999;
+    --dark-gray: #212529;
+    --home-brownish: #433c30;
+
+    --home-black-20: rgba(0,0,0,0.2);
+    --home-black-10: rgba(0,0,0,0.1);
+    --home-black-08: rgba(0,0,0,0.08);
+    --home-black-05: rgba(0,0,0,0.05); 
+    --home-black-06: rgba(0, 0, 0, 0.386); 
+}

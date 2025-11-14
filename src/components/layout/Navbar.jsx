@@ -1,98 +1,133 @@
-import React, { useState } from 'react';
-import { FiSearch, FiShoppingCart, FiUser, FiX, FiGlobe, FiChevronDown } from 'react-icons/fi';
+import React, { useState, useEffect } from 'react';
+import { FiSearch, FiShoppingCart, FiUser, FiX } from 'react-icons/fi';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
-const Navbar = ({ cartCount = 0 }) => {
+const Navbar = ({ cartCount }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('home');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [isLanguageOpen, setIsLanguageOpen] = useState(false);
-  const [currentLanguage, setCurrentLanguage] = useState('English');
   const [searchQuery, setSearchQuery] = useState('');
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const languages = [
-    { code: 'en', name: 'English' },
-    { code: 'ar', name: 'العربية' }
-  ];
+
+  useEffect(() => {
+    const path = location.pathname;
+    if (path === '/' || path === '/home') setActiveLink('home');
+    else if (path === '/about') setActiveLink('about');
+    else if (path === '/services') setActiveLink('services');
+    else if (path === '/shop') setActiveLink('shop');
+    else if (path === '/faq') setActiveLink('faq');
+    else if (path === '/contact') setActiveLink('contact');
+    else if (path === '/cart') setActiveLink('cart');
+    else if (path === '/checkout') setActiveLink('checkout');
+  }, [location.pathname]);
+
+  const handleNavigation = (path, linkName) => {
+    navigate(path);
+    setActiveLink(linkName);
+    setIsMenuOpen(false);
+  };
+
+  const handleCartClick = () => {
+
+    if (cartCount > 0) {
+      handleNavigation('/checkout', 'checkout');
+    } else {
+      
+      handleNavigation('/cart', 'cart');
+    }
+  };
 
   return (
     <nav className="navbar">
       <div className="nav-container">
-        <a href="#home" className="logo">
-          <img src="/src/assets/images/logo.jpeg" alt="Pharmez Logo" />
-        </a>
-
+        
+        <div className="logo">
+          <img src="src/assets/images/logo.png" alt="Pharmez Logo" />
+        </div>
+        
+        
         <ul className="nav-menu">
-          {['home', 'about', 'services', 'shop', 'faq'].map((item) => (
-            <li key={item}>
-              <a 
-                href={`#${item}`}
-                className={activeLink === item ? 'active' : ''}
-                onClick={() => setActiveLink(item)}
-              >
-                {item.charAt(0).toUpperCase() + item.slice(1)}
-              </a>
-            </li>
-          ))}
+          <li>
+            <a 
+              className={activeLink === 'home' ? 'active' : ''}
+              onClick={() => handleNavigation('/', 'home')}
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a 
+              className={activeLink === 'about' ? 'active' : ''}
+              onClick={() => handleNavigation('/about', 'about')}
+            >
+              About
+            </a>
+          </li>
+          <li>
+            <a 
+              className={activeLink === 'services' ? 'active' : ''}
+              onClick={() => handleNavigation('/services', 'services')}
+            >
+              Services
+            </a>
+          </li>
+          <li>
+            <a 
+              className={activeLink === 'shop' ? 'active' : ''}
+              onClick={() => handleNavigation('/shop', 'shop')}
+            >
+              Shop
+            </a>
+          </li>
+          <li>
+            <a 
+              className={activeLink === 'faq' ? 'active' : ''}
+              onClick={() => handleNavigation('/faq', 'faq')}
+            >
+              FAQ
+            </a>
+          </li>
+          <li>
+            <a 
+              className={activeLink === 'contact' ? 'active' : ''}
+              onClick={() => handleNavigation('/contact', 'contact')}
+            >
+              Contact
+            </a>
+          </li>
         </ul>
-
-        <div className="nav-actions">
+        
+        
+        <div className="nav-icons">
           <button onClick={() => setIsSearchOpen(!isSearchOpen)}>
-            {isSearchOpen ? <FiX size={18} /> : <FiSearch size={18} />}
+            {isSearchOpen ? <FiX /> : <FiSearch />}
           </button>
           
-          <button className="cart-icon">
-            <FiShoppingCart size={18} />
+          
+          <button 
+            className={`cart-icon ${activeLink === 'cart' || activeLink === 'checkout' ? 'active' : ''}`}
+            onClick={handleCartClick}
+          >
+            <FiShoppingCart />
             {cartCount > 0 && (
               <span className="cart-count">{cartCount}</span>
             )}
           </button>
           
-          <button><FiUser size={18} /></button>
-
-          <div className="language-dropdown">
-            <button 
-              className="language-btn"
-              onClick={() => setIsLanguageOpen(!isLanguageOpen)}
-              onBlur={() => setTimeout(() => setIsLanguageOpen(false), 200)}
-            >
-              <FiGlobe size={16} />
-              <span>{currentLanguage}</span>
-              <FiChevronDown size={14} className={`arrow ${isLanguageOpen ? 'open' : ''}`} />
-            </button>
-            
-            <div className={`language-menu ${isLanguageOpen ? 'open' : ''}`}>
-              {languages.map((language) => (
-                <button
-                  key={language.code}
-                  className="language-option"
-                  onClick={() => {
-                    setCurrentLanguage(language.name);
-                    setIsLanguageOpen(false);
-                  }}
-                >
-                  {language.name}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <a href="#" className="contact-btn">
-            Contact Us
-          </a>
-
+          <button onClick={() => navigate('/login')}>
+            <FiUser />
+          </button>
         </div>
-
-        <button 
-          className="mobile-menu-btn"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+        
+        <div className="mobile-menu-btn" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          ☰
+        </div>
       </div>
-
+      
+    
       {isSearchOpen && (
         <div className="search-bar">
           <input 
@@ -102,28 +137,61 @@ const Navbar = ({ cartCount = 0 }) => {
             onChange={(e) => setSearchQuery(e.target.value)}
             autoFocus
           />
-          <button onClick={() => setIsSearchOpen(false)}>
+          <button onClick={() => {
+            console.log('Searching for:', searchQuery);
+            setIsSearchOpen(false);
+          }}>
             Search
           </button>
         </div>
       )}
-
+      
+     
       {isMenuOpen && (
         <div className="mobile-menu">
-          {['home', 'about', 'services', 'shop', 'faq', 'contact'].map((item) => (
-            <a 
-              key={item}
-              href={`#${item}`}
-              className={activeLink === item ? 'active' : ''}
-              onClick={() => {
-                setActiveLink(item);
-                setIsMenuOpen(false);
-              }}
-            >
-              {item.charAt(0).toUpperCase() + item.slice(1)}
-            </a>
-          ))}
-        </div> 
+          <a 
+            className={activeLink === 'home' ? 'active' : ''}
+            onClick={() => handleNavigation('/', 'home')}
+          >
+            Home
+          </a>
+          <a 
+            className={activeLink === 'about' ? 'active' : ''}
+            onClick={() => handleNavigation('/about', 'about')}
+          >
+            About
+          </a>
+          <a 
+            className={activeLink === 'services' ? 'active' : ''}
+            onClick={() => handleNavigation('/services', 'services')}
+          >
+            Services
+          </a>
+          <a 
+            className={activeLink === 'shop' ? 'active' : ''}
+            onClick={() => handleNavigation('/shop', 'shop')}
+          >
+            Shop
+          </a>
+          <a 
+            className={activeLink === 'faq' ? 'active' : ''}
+            onClick={() => handleNavigation('/faq', 'faq')}
+          >
+            FAQ
+          </a>
+          <a 
+            className={activeLink === 'contact' ? 'active' : ''}
+            onClick={() => handleNavigation('/contact', 'contact')}
+          >
+            Contact
+          </a>
+          <a 
+            className={activeLink === 'cart' || activeLink === 'checkout' ? 'active' : ''}
+            onClick={handleCartClick}
+          >
+            {cartCount > 0 ? `Checkout (${cartCount})` : 'Cart (0)'}
+          </a>
+        </div>
       )}
     </nav>
   );

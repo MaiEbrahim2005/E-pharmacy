@@ -1,4 +1,3 @@
-// src/pages/Login.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
@@ -10,15 +9,11 @@ export default function LoginPage({ onLogin }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    // كود اللوجين البسيط من غير localStorage
     console.log('Login:', email, password);
-    
-    // بعد اللوجين الناجح
     if (onLogin) {
-      onLogin(); // استدعي دالة اللوجين
+      onLogin(); 
     }
-    navigate('/shop'); // اذهبي للشوب مباشرة
+    navigate('/home'); 
   };
 
   return (
