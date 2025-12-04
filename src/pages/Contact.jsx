@@ -1,38 +1,60 @@
-import React from 'react';
+import React, { useState } from "react";
+import "./contact.css";
 
-const Contact = () => {
+// Contact Page Component
+export default function Contact() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [sent, setSent] = useState(false);
+
+  // Submit handler
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSent(true); // Show success message
+    setName("");
+    setEmail("");
+    setMessage("");
+  };
+
   return (
-    <div className="contact-page" style={{ padding: '20px' }}>
-      <h1>Contact Us</h1>
-      <p>We're here to help with all your healthcare needs</p>
-      
-      <div style={{ marginTop: '30px' }}>
-        <h2>Get in Touch</h2>
-        <div style={{ display: 'grid', gap: '20px', maxWidth: '500px' }}>
-          <div>
-            <strong>📍 Address:</strong>
-            <p>123 Healthcare Street, Medical City, MC 12345</p>
-          </div>
-          
-          <div>
-            <strong>📞 Phone:</strong>
-            <p>+1 (555) 123-4567</p>
-          </div>
-          
-          <div>
-            <strong>📧 Email:</strong>
-            <p>info@pharmez.com</p>
-          </div>
-          
-          <div>
-            <strong>🕒 Working Hours:</strong>
-            <p>Monday - Friday: 8:00 AM - 10:00 PM</p>
-            <p>Weekends: 9:00 AM - 8:00 PM</p>
-          </div>
-        </div>
-      </div>
+    <div className="contact-container">
+      <h1 className="contact-title">Contact Us</h1>
+
+      {sent && <div className="success">Message sent successfully!</div>}
+
+      <form className="contact-form" onSubmit={handleSubmit}>
+        <label>
+          Name
+          <input
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </label>
+
+        <label>
+          Email
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </label>
+
+        <label>
+          Message
+          <textarea
+            rows="6"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            required
+          />
+        </label>
+
+        <button type="submit">Send</button>
+      </form>
     </div>
   );
-};
-
-export default Contact;
+}
