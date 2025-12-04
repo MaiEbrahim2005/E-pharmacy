@@ -1,0 +1,162 @@
+/* src/components/about/AboutServices.css */
+
+/* تعريف المتغيرات CSS */
+:root {
+  --home-white: #ffffff;
+  --home-purple-dark: #7C3AED;
+  --home-gray-333: #333333;
+  --home-gray-666: #666666;
+}
+
+.services-section {
+  padding: 60px 20px;
+  background: var(--home-white);
+}
+
+.services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.service-item {
+  display: flex;
+  align-items: center;
+  padding: 25px;
+  width: calc(25% - 15px);
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  position: relative;
+  
+  /* هذه هي الخطوة الأهم: إزالة outline نهائياً */
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-focus-ring-color: transparent;
+}
+
+/* إزالة outline عند التركيز */
+.service-item:focus,
+.service-item:focus-within,
+.service-item:focus-visible {
+  outline: none !important;
+  box-shadow: 0 8px 25px rgba(124, 58, 237, 0.15);
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(124, 58, 237, 0.15);
+  border-color: var(--home-purple-dark);
+}
+
+.service-icon-wrapper {
+  width: 60px;
+  height: 60px;
+  background: white;
+  border: 2px solid var(--home-purple-dark);
+  border-radius: 50%;
+  margin-right: 20px;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--home-purple-dark);
+  font-size: 24px;
+  outline: none !important;
+}
+
+.service-item:hover .service-icon-wrapper {
+  background: var(--home-purple-dark);
+  color: var(--home-white);
+  transform: scale(1.1);
+}
+
+/* إزالة outline من النصوص */
+.service-text h4,
+.service-text p {
+  outline: none !important;
+}
+
+/* إزالة outline من react-icons */
+.service-icon-wrapper svg {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.service-text {
+  flex: 1;
+}
+
+.service-text h4 {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  color: var(--home-gray-333);
+  line-height: 1.3;
+}
+
+.service-text p {
+  font-size: 14px;
+  margin: 0;
+  color: var(--home-gray-666);
+  line-height: 1.5;
+}
+
+/* إزالة outline من جميع العناصر الداخلية */
+.service-item * {
+  outline: none !important;
+}
+
+/* إزالة highlight في الهواتف */
+@media (hover: none) and (pointer: coarse) {
+  .service-item {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .service-item {
+    width: calc(50% - 10px);
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-section {
+    padding: 40px 15px;
+  }
+  
+  .service-item {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .service-icon-wrapper {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+  
+  .service-text h4 {
+    font-size: 16px;
+  }
+  
+  .service-text p {
+    font-size: 13px;
+  }
+}
