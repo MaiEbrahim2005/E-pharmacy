@@ -159,7 +159,7 @@ const [activeCategory, setActiveCategory] = useState('All');
             {slides.map((_, index) => (
               <button
                 key={index}
-                className={`dot ${currentSlide === index ? 'active' : ''}`}
+                className={`feature-dot ${currentSlide === index ? 'active' : ''}`}
                 onClick={() => setCurrentSlide(index)}
                 aria-label={`Go to slide ${index + 1}`}
                 aria-pressed={currentSlide === index}

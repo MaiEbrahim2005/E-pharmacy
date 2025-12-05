@@ -74,15 +74,16 @@
 .step-icon {
   width: 60px;
   height: 60px;
-  background: var(--home-gray-333);
+  background: var(--home-gray-333) ; 
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 2;
+  
 }
 
-.icon {
+.process-icon {
   font-size: 24px;
 }
 
