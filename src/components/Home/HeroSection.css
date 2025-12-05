@@ -10,9 +10,9 @@
 .hero-container {
   max-width: 1200px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr; 
   gap: 4rem;
-  align-items: start;
+  align-items: start; 
 }
 
 .right-content {
@@ -222,6 +222,7 @@
   border-radius: 20px;
   border: 2px solid var(--home-white-30);
   background: var(--home-white-50); 
+  margin-top: 22px;
 }
 
 .image-placeholder.small {
