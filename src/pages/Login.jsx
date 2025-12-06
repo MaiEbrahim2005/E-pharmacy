@@ -5,21 +5,41 @@ import './Login.css';
 export default function LoginPage({ onLogin }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Login:', email, password);
-    if (onLogin) {
-      onLogin(); 
+
+    // البيانات المسجلة في Local Storage
+    const storedEmail = localStorage.getItem("userEmail");
+    const storedPassword = localStorage.getItem("userPassword");
+
+    if (!storedEmail || !storedPassword) {
+      setError("No account found. Please register first.");
+      return;
     }
-    navigate('/home'); 
+
+    // مقارنة البيانات
+    if (email === storedEmail && password === storedPassword) {
+      localStorage.setItem("loggedIn", "true");
+
+      if (onLogin) {
+        onLogin();
+      }
+
+      navigate('/home');
+    } else {
+      setError("Email or password is incorrect.");
+    }
   };
 
   return (
     <div className="auth-container">
       <form className="auth-form" onSubmit={handleSubmit}>
-        <h2 className="auth-title">Welcome Back!</h2>
+        <h2 className="auth-title">Welcome </h2>
+
+        {error && <p style={{ color: "red" }}>{error}</p>}
 
         <input
           type="email"
@@ -55,7 +75,7 @@ export default function LoginPage({ onLogin }) {
           <p>
             Don't have an account? 
             <span 
-              style={{color: '#6C4ED9', cursor: 'pointer', fontWeight: '600'}} 
+              style={{ color: '#6C4ED9', cursor: 'pointer', fontWeight: '600' }}
               onClick={() => navigate('/register')}
             >
               {' '}Register here

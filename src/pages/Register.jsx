@@ -8,6 +8,8 @@ export default function RegisterPage({ onLogin }) {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -18,16 +20,48 @@ export default function RegisterPage({ onLogin }) {
       setError('Passwords do not match');
       return;
     }
-    console.log('Registration successful:', { name, email, password });
-    
+
+    // حفظ البيانات في Local Storage
+    localStorage.setItem("userName", name);
+    localStorage.setItem("userEmail", email);
+    localStorage.setItem("userPassword", password);
+    localStorage.setItem("loggedIn", "true");
+
     if (onLogin) {
-      onLogin(); 
+      onLogin();
     }
-    navigate('/home'); 
+
+    // عرض Toast notification
+    setToastMessage('Registration successful! 🎉');
+    setShowToast(true);
+
+    setTimeout(() => {
+      setShowToast(false);
+      navigate('/home'); // التوجيه بعد Toast
+    }, 2000);
   };
 
   return (
     <div className="auth-container">
+      {showToast && (
+        <div style={{
+          position: 'fixed',
+          bottom: '2rem',
+          right: '2rem',
+          background: '#6C4ED9',
+          color: 'white',
+          padding: '1rem 1.5rem',
+          borderRadius: '0.5rem',
+          boxShadow: '0 10px 15px rgba(0,0,0,0.1)',
+          zIndex: 1000,
+          maxWidth: '300px',
+          textAlign: 'center',
+          fontWeight: '600',
+        }}>
+          {toastMessage}
+        </div>
+      )}
+
       <form className="auth-form" onSubmit={handleSubmit}>
         <h2 className="auth-title">Create Account!</h2>
 

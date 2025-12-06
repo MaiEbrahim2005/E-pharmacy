@@ -1,8 +1,12 @@
+/* src/pages/Checkout.css */
+
 .checkout-container {
   min-height: 100vh;
   background: hsl(var(--background));
+  font-family: Arial, sans-serif;
 }
 
+/* Header */
 .checkout-header {
   background: hsl(var(--primary));
   color: hsl(var(--primary-foreground));
@@ -38,17 +42,15 @@
   cursor: pointer;
   font-size: 0.875rem;
   font-weight: 500;
-  transition: opacity 0.2s;
   text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
+  transition: opacity 0.2s;
 }
 
 .continue-shopping-button:hover {
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
+/* Checkout Content */
 .checkout-content {
   max-width: 1280px;
   margin: 0 auto;
@@ -62,6 +64,7 @@
   color: hsl(var(--foreground));
 }
 
+/* Grid */
 .checkout-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -74,6 +77,7 @@
   }
 }
 
+/* Card */
 .checkout-card {
   background: hsl(var(--card));
   border: 1px solid hsl(var(--border));
@@ -89,14 +93,15 @@
 .card-title {
   font-size: 1.25rem;
   font-weight: 600;
-  color: hsl(var(--card-foreground));
   margin: 0;
+  color: hsl(var(--card-foreground));
 }
 
 .card-content {
   padding: 1.5rem;
 }
 
+/* Forms */
 .form-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -143,9 +148,9 @@
   width: 100%;
   padding: 0.5rem 0.75rem;
   border: 1px solid hsl(var(--input));
+  border-radius: 0.375rem;
   background: hsl(var(--background));
   color: hsl(var(--foreground));
-  border-radius: 0.375rem;
   font-size: 0.875rem;
   transition: all 0.2s;
 }
@@ -160,17 +165,7 @@
   color: hsl(var(--muted-foreground));
 }
 
-.form-input:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.separator {
-  height: 1px;
-  background: hsl(var(--border));
-  margin: 1.5rem 0;
-}
-
+/* Cart Items */
 .cart-items {
   display: flex;
   flex-direction: column;
@@ -255,7 +250,6 @@
   color: hsl(var(--destructive));
   cursor: pointer;
   border-radius: 0.375rem;
-  transition: all 0.2s;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -265,6 +259,7 @@
   background: hsl(var(--destructive) / 0.1);
 }
 
+/* Order Summary */
 .order-summary {
   display: flex;
   flex-direction: column;
@@ -284,6 +279,7 @@
   border-top: 1px solid hsl(var(--border));
 }
 
+/* Place Order Button */
 .place-order-button {
   width: 100%;
   padding: 0.75rem 1.5rem;
@@ -302,6 +298,7 @@
   opacity: 0.9;
 }
 
+/* Empty Cart */
 .empty-cart {
   text-align: center;
   padding: 3rem 1rem;
