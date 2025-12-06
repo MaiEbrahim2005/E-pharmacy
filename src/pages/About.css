@@ -1,0 +1,178 @@
+/* About.css - Video Modal Styles */
+
+/* Clean transparent background */
+.video-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+  pointer-events: auto;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Modal container */
+.video-modal {
+  background: white;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 800px;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.1);
+  border: 1px solid #f0f0f0;
+  animation: slideUp 0.3s ease;
+  pointer-events: auto;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Close button */
+.close-modal-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 50%;
+  color: #6b7280;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.2s ease;
+  pointer-events: auto;
+}
+
+.close-modal-btn:hover {
+  background: #f8fafc;
+  color: var(--primary-purple, #8B5CF6);
+  border-color: var(--primary-purple, #8B5CF6);
+  transform: scale(1.05);
+}
+
+/* Video container */
+.video-wrapper {
+  width: 100%;
+  padding: 40px;
+  border-radius: 12px;
+  overflow: hidden;
+  pointer-events: auto;
+}
+
+/* Video element */
+.about-video {
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background: #000;
+  display: block;
+  pointer-events: auto;
+}
+
+/* Fix for hover issue */
+.video-modal * {
+  pointer-events: auto;
+}
+
+/* Prevent video from disappearing on hover */
+.about-video:hover {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Custom video controls */
+.about-video::-webkit-media-controls-panel {
+  background: rgba(255, 255, 255, 0.95);
+  pointer-events: auto;
+}
+
+.about-video::-webkit-media-controls-play-button {
+  background-color: var(--primary-purple, #8B5CF6);
+  border-radius: 50%;
+}
+
+.about-video::-webkit-media-controls-current-time-display,
+.about-video::-webkit-media-controls-time-remaining-display {
+  color: #374151;
+  font-weight: 500;
+}
+
+/* Subtle shadow effect */
+.video-modal::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 8px;
+  background: rgba(139, 92, 246, 0.05);
+  border-radius: 50%;
+  filter: blur(4px);
+  z-index: -1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .video-modal {
+    width: 95%;
+    max-width: 95%;
+  }
+  
+  .video-wrapper {
+    padding: 20px;
+  }
+  
+  .about-video {
+    max-height: 60vh;
+  }
+  
+  .close-modal-btn {
+    top: 8px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-modal {
+    width: 98%;
+    border-radius: 8px;
+  }
+  
+  .video-wrapper {
+    padding: 15px;
+  }
+  
+  .about-video {
+    max-height: 50vh;
+  }
+}

@@ -22,7 +22,7 @@ const OurProcess = () => {
                 <div className="process-step">
                   <div className="step-icon-container">
                     <div className="step-icon">
-                      <FiUpload className="icon" aria-hidden="true" />
+                      <FiUpload className="process-icon" aria-hidden="true" />
                     </div>
                     <div className="step-line" />
                   </div>
@@ -35,7 +35,7 @@ const OurProcess = () => {
                 <div className="process-step">
                   <div className="step-icon-container">
                     <div className="step-icon">
-                      <FiShoppingCart className="icon" aria-hidden="true" />
+                      <FiShoppingCart className="process-icon" aria-hidden="true" />
                     </div>
                     <div className="step-line" />
                   </div>
@@ -48,7 +48,7 @@ const OurProcess = () => {
                 <div className="process-step">
                   <div className="step-icon-container">
                     <div className="step-icon">
-                      <FiTruck className="icon" aria-hidden="true" />
+                      <FiTruck className="process-icon" aria-hidden="true" />
                     </div>
                   </div>
                   <div className="step-content">

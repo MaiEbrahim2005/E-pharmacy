@@ -1,26 +1,57 @@
-import React from 'react';
+// src/pages/About.jsx
+import React, { useState, useRef } from 'react';
+import AboutHero from '../components/about/AboutHero';
+import AboutStats from '../components/about/AboutStats';
+import AboutServices from '../components/about/AboutServices';
+import './About.css';
 
 const About = () => {
+  const [showVideo, setShowVideo] = useState(false);
+  const videoRef = useRef(null);
+
+  const handleWatchVideo = () => {
+    setShowVideo(true);
+  };
+
+  const handleCloseVideo = () => {
+    setShowVideo(false);
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+    }
+  };
+
   return (
-    <div className="about-page" style={{ padding: '20px' }}>
-      <h1>About Pharmez</h1>
-      <p>Your trusted partner in healthcare since 2024</p>
+    <div className="about-page">
+      <AboutHero onWatchVideo={handleWatchVideo} />
+      <AboutStats />
+      <AboutServices />
       
-      <div style={{ marginTop: '30px' }}>
-        <h2>Our Mission</h2>
-        <p>To provide high-quality healthcare products and services to our community.</p>
-        
-        <h2>Our Vision</h2>
-        <p>To be the leading pharmacy in delivering exceptional healthcare solutions.</p>
-        
-        <h2>Why Choose Us?</h2>
-        <ul>
-          <li>Wide range of products</li>
-          <li>Expert healthcare advice</li>
-          <li>Fast and reliable delivery</li>
-          <li>Competitive prices</li>
-        </ul>
-      </div>
+      {/* Video Modal */}
+      {showVideo && (
+        <div className="video-modal-overlay" onClick={handleCloseVideo}>
+          <div className="video-modal" onClick={(e) => e.stopPropagation()}>
+            <button 
+              className="close-modal-btn" 
+              onClick={handleCloseVideo}
+              aria-label="Close video"
+            >
+              ✕
+            </button>
+            <div className="video-wrapper">
+              <video 
+                ref={videoRef}
+                src="/src/assets/about/abtvideo.mp4" 
+                controls 
+                className="about-video"
+                playsInline
+              >
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
