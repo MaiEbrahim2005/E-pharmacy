@@ -13,7 +13,7 @@ import Footer from './components/layout/Footer';
 
 import HomePage from './pages/HomePage';
 import About from './pages/About';
-import Services from './pages/Services';
+// ⛔ امسحتي السطر: import Services from './pages/Services';
 import ShopPage from './pages/ShopPage';
 import FAQ from './pages/FAQ';
 import Contact from './pages/Contact';
@@ -29,7 +29,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
-
   const [cartCount, setCartCount] = useState(
     JSON.parse(localStorage.getItem('cart') || '[]').length
   );
@@ -140,7 +139,6 @@ function MainApp({ cartCount, isLoggedIn, onAddToCart, onLogin, onLogout, onClea
 
   return (
     <div className="App">
-
       {!hideNavbar && (
         <Navbar
           cartCount={cartCount}
@@ -153,7 +151,7 @@ function MainApp({ cartCount, isLoggedIn, onAddToCart, onLogin, onLogout, onClea
         <Route path="/" element={<HomePage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/about" element={<About />} />
-        <Route path="/services" element={<Services />} />
+        {/* ⛔ امسحتي السطر: <Route path="/services" element={<Services />} /> */}
         <Route path="/shop" element={<ShopPage onAddToCart={onAddToCart} />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/contact" element={<Contact />} />
@@ -166,11 +164,8 @@ function MainApp({ cartCount, isLoggedIn, onAddToCart, onLogin, onLogout, onClea
       </Routes>
 
       {!hideNavbar && <Footer />}
-
-      {/* Toast Container */}
       <ToastContainer />
     </div>
   );
 }
-
 export default App;
