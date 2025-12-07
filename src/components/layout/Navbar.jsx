@@ -72,9 +72,9 @@ const Navbar = ({ cartCount, isLoggedIn, onLogout }) => {
         </ul>
 
         <div className="nav-icons">
-          <button onClick={() => setIsSearchOpen(!isSearchOpen)}>
+          {/* <button onClick={() => setIsSearchOpen(!isSearchOpen)}>
             {isSearchOpen ? <FiX /> : <FiSearch />}
-          </button>
+          </button> */}
 
           <button
             className={`cart-icon ${activeLink === 'cart' || activeLink === 'checkout' ? 'active' : ''}`}
