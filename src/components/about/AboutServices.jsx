@@ -1,29 +1,34 @@
 // src/components/about/AboutServices.jsx
 import React from 'react';
 import './AboutServices.css';
-import { FiTruck, FiCreditCard, FiDollarSign, FiHeadphones } from "react-icons/fi";
+import { 
+  FiUpload, 
+  FiBell, 
+  FiShoppingCart, 
+  FiCheckCircle 
+} from "react-icons/fi";
 
 const AboutServices = () => {
   const services = [
     {
-      icon: <FiTruck style={{ fontSize: '24px' }} />,
-      title: "Free Shipping & Returns",
-      description: "For all orders over $200"
+      icon: <FiUpload style={{ fontSize: '24px' }} />,
+      title: "Prescription Upload",
+      description: "Users can upload prescriptions (image/PDF) quickly for pharmacy review."
     },
     {
-      icon: <FiCreditCard style={{ fontSize: '24px' }} />,
-      title: "Secure Payment",
-      description: "Ensure Secure Payment"
+      icon: <FiBell style={{ fontSize: '24px' }} />, 
+      title: "Monthly Reminders",
+      description: "Chronic patients receive automatic reminders to renew their monthly medicines."
     },
     {
-      icon: <FiDollarSign style={{ fontSize: '24px' }} />,
-      title: "Money Back Guarantee",
-      description: "Returning Money in 30 days"
+      icon: <FiShoppingCart style={{ fontSize: '24px' }} />,
+      title: "Easy Medicine Ordering",
+      description: "Users can browse medicines and place orders smoothly through the system."
     },
     {
-      icon: <FiHeadphones style={{ fontSize: '24px' }} />,
-      title: "24/7 Customer Support",
-      description: "Friendly Customer Support"
+      icon: <FiCheckCircle style={{ fontSize: '24px' }} />,
+      title: "Smart Medicine Suggestions",
+      description: "The system suggests suitable medicines based on the uploaded prescription to help users order faster."
     }
   ];
 
