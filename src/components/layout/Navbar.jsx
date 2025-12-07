@@ -35,7 +35,7 @@ const Navbar = ({ cartCount, isLoggedIn, onLogout }) => {
     if (cartCount > 0) {
       handleNavigation('/checkout', 'checkout');
     } else {
-      handleNavigation('/cart', 'cart');
+      handleNavigation('/shop', 'shop');
     }
   };
 
@@ -80,7 +80,7 @@ const Navbar = ({ cartCount, isLoggedIn, onLogout }) => {
             {isSearchOpen ? <FiX /> : <FiSearch />}
           </button>
 
-          <button 
+          <button
             className={`cart-icon ${activeLink === 'cart' || activeLink === 'checkout' ? 'active' : ''}`}
             onClick={handleCartClick}
           >
@@ -89,9 +89,7 @@ const Navbar = ({ cartCount, isLoggedIn, onLogout }) => {
           </button>
 
           {isLoggedIn ? (
-            <button onClick={handleLogoutClick}>
-              Logout
-            </button>
+            <button onClick={handleLogoutClick}>Logout</button>
           ) : (
             <button onClick={() => navigate('/login')}>
               <FiUser />
@@ -106,7 +104,7 @@ const Navbar = ({ cartCount, isLoggedIn, onLogout }) => {
 
       {isSearchOpen && (
         <div className="search-bar">
-          <input 
+          <input
             type="text"
             placeholder="Search for medicines..."
             value={searchQuery}
@@ -131,14 +129,12 @@ const Navbar = ({ cartCount, isLoggedIn, onLogout }) => {
           <a className={activeLink === 'faq' ? 'active' : ''} onClick={() => handleNavigation('/faq', 'faq')}>FAQ</a>
           <a className={activeLink === 'contact' ? 'active' : ''} onClick={() => handleNavigation('/contact', 'contact')}>Contact</a>
           <a className={activeLink === 'health' ? 'active' : ''} onClick={() => handleNavigation('/health', 'health')}>Health</a>
-          <a className={activeLink === 'cart' || activeLink === 'checkout' ? 'active' : ''} onClick={handleCartClick}>
+          <a
+            className={activeLink === 'cart' || activeLink === 'checkout' ? 'active' : ''}
+            onClick={handleCartClick}
+          >
             {cartCount > 0 ? `Checkout (${cartCount})` : 'Cart (0)'}
           </a>
-          {isLoggedIn ? (
-            <a onClick={handleLogoutClick}>Logout</a>
-          ) : (
-            <a onClick={() => navigate('/login')}>Login</a>
-          )}
         </div>
       )}
     </nav>

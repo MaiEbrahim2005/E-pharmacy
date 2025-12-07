@@ -38,7 +38,7 @@ function App() {
     localStorage.getItem("loggedIn") === "true"
   );
 
-  // Listen to localStorage changes (login/cart)
+  // Listen to localStorage changes (login/cart) — keep it for multi-tab sync
   useEffect(() => {
     const handleStorageChange = () => {
       setIsLoggedIn(localStorage.getItem("loggedIn") === "true");
@@ -84,19 +84,28 @@ function App() {
     }
   }, []);
 
+  // Called by ShopPage when adding an item
   const handleAddToCart = () => {
     setCartCount(prev => prev + 1);
   };
 
+  // Called on login
   const handleLogin = () => {
     localStorage.setItem("loggedIn", "true");
     setIsLoggedIn(true);
   };
 
+  // Logout clears everything (you already had this)
   const handleLogout = () => {
     localStorage.clear();
     setIsLoggedIn(false);
     setCartCount(0);
+  };
+
+  // NEW: Clear cart (to be called after successful payment)
+  const handleClearCart = () => {
+    localStorage.removeItem('cart');    // clear persisted cart
+    setCartCount(0);                    // update UI-counter in App
   };
 
   return (
@@ -107,12 +116,13 @@ function App() {
         onAddToCart={handleAddToCart}
         onLogin={handleLogin}
         onLogout={handleLogout}
+        onClearCart={handleClearCart}      // pass the new handler down
       />
     </Router>
   );
 }
 
-function MainApp({ cartCount, isLoggedIn, onAddToCart, onLogin, onLogout }) {
+function MainApp({ cartCount, isLoggedIn, onAddToCart, onLogin, onLogout, onClearCart }) {
   const location = useLocation();
 
   const hideNavbar = ['/login', '/register', '/thank-you'].includes(location.pathname);
@@ -147,7 +157,8 @@ function MainApp({ cartCount, isLoggedIn, onAddToCart, onLogin, onLogout }) {
         <Route path="/shop" element={<ShopPage onAddToCart={onAddToCart} />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/checkout" element={<Checkout />} />
+        {/* Pass onClearCart to Checkout so it can notify App after successful payment */}
+        <Route path="/checkout" element={<Checkout onClearCart={onClearCart} />} />
         <Route path="/login" element={<Login onLogin={onLogin} />} />
         <Route path="/register" element={<Register onLogin={onLogin} />} />
         <Route path="/thank-you" element={<ThankYouPage />} />

@@ -1,8 +1,9 @@
+// src/pages/Checkout.jsx
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Checkout.css";
 
-const Checkout = () => {
+const Checkout = ({ onClearCart }) => {
   const navigate = useNavigate();
   const [cartItems, setCartItems] = useState([]);
   const [formData, setFormData] = useState({
@@ -56,13 +57,22 @@ const Checkout = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    localStorage.removeItem('cart');
-    setCartItems([]);
+
+    // 1) Clear persisted cart and update App state via callback (if provided)
+    if (typeof onClearCart === 'function') {
+      onClearCart();          // this will remove localStorage key + set cartCount(0) in App
+    } else {
+      // fallback (if prop not provided) — still clear localStorage and local state
+      localStorage.removeItem('cart');
+    }
+
+    setCartItems([]);        // clear local checkout state
     showToastNotification("Order placed successfully! You will receive a confirmation email shortly.");
 
+    // 2) Navigate to thank-you (short delay so user sees toast)
     setTimeout(() => {
       navigate('/thank-you');
-    }, 2000);
+    }, 1200);
   };
 
   return (
