@@ -1,4 +1,4 @@
-// src/pages/About.jsx
+
 import React, { useState, useRef } from 'react';
 import AboutHero from '../components/about/AboutHero';
 import AboutStats from '../components/about/AboutStats';
@@ -27,7 +27,7 @@ const About = () => {
       <AboutStats />
       <AboutServices />
       
-      {/* Video Modal */}
+     
       {showVideo && (
         <div className="video-modal-overlay" onClick={handleCloseVideo}>
           <div className="video-modal" onClick={(e) => e.stopPropagation()}>

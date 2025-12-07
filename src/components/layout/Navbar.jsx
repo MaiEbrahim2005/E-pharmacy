@@ -1,4 +1,4 @@
-// src/components/layout/Navbar.jsx
+
 import React, { useState, useEffect } from 'react';
 import { FiSearch, FiShoppingCart, FiUser, FiX } from 'react-icons/fi';
 import { useNavigate, useLocation } from 'react-router-dom';

@@ -11,7 +11,7 @@ export default function LoginPage({ onLogin }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // البيانات المسجلة في Local Storage
+    
     const storedEmail = localStorage.getItem("userEmail");
     const storedPassword = localStorage.getItem("userPassword");
 
@@ -20,7 +20,7 @@ export default function LoginPage({ onLogin }) {
       return;
     }
 
-    // مقارنة البيانات
+   
     if (email === storedEmail && password === storedPassword) {
       localStorage.setItem("loggedIn", "true");
 

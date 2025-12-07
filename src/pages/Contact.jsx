@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import "./contact.css";
 
-// Contact Page Component
+
 export default function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [sent, setSent] = useState(false);
 
-  // Submit handler
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSent(true); // Show success message
+    setSent(true); 
     setName("");
     setEmail("");
     setMessage("");

@@ -1,7 +1,7 @@
 import React from "react";
 import "./faq.css";
 
-// FAQ Page Component
+
 export default function FAQ() {
   const faqs = [
     { q: "How can I order medicine from the website?", a: "Create an account, search for the medicine, add to cart, and complete payment." },

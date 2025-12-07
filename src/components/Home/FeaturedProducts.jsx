@@ -6,19 +6,19 @@ const FeaturedProducts = () => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // دالة إضافة منتج للعربة
+  
   const handleAddToCart = (product) => {
-    // قراءة العربة الحالية من localStorage
+   
     const cart = JSON.parse(localStorage.getItem('cart') || '[]');
     
-    // التحقق إذا المنتج موجود في العربة
+    
     const existingProductIndex = cart.findIndex(item => item.id === product.id);
     
     if (existingProductIndex !== -1) {
-      // إذا المنتج موجود، نزيد الكمية
+     
       cart[existingProductIndex].quantity += 1;
     } else {
-      // إذا المنتج مش موجود، نضيفه
+     
       cart.push({
         id: product.id,
         name: product.name,
@@ -29,10 +29,10 @@ const FeaturedProducts = () => {
       });
     }
     
-    // حفظ العربة المحدثة في localStorage
+    
     localStorage.setItem('cart', JSON.stringify(cart));
     
-    // إرسال حدث لتحديث العداد في الـ Navbar
+    
     window.dispatchEvent(new Event('storage'));
   };
 

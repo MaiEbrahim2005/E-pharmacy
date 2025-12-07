@@ -1,6 +1,6 @@
-/* About.css - Video Modal Styles */
 
-/* Clean transparent background */
+
+
 .video-modal-overlay {
   position: fixed;
   top: 0;
@@ -46,7 +46,7 @@
   }
 }
 
-/* Close button */
+
 .close-modal-btn {
   position: absolute;
   top: 12px;
@@ -74,7 +74,7 @@
   transform: scale(1.05);
 }
 
-/* Video container */
+
 .video-wrapper {
   width: 100%;
   padding: 40px;
@@ -95,18 +95,18 @@
   pointer-events: auto;
 }
 
-/* Fix for hover issue */
+
 .video-modal * {
   pointer-events: auto;
 }
 
-/* Prevent video from disappearing on hover */
+
 .about-video:hover {
   opacity: 1 !important;
   visibility: visible !important;
 }
 
-/* Custom video controls */
+
 .about-video::-webkit-media-controls-panel {
   background: rgba(255, 255, 255, 0.95);
   pointer-events: auto;
@@ -123,7 +123,7 @@
   font-weight: 500;
 }
 
-/* Subtle shadow effect */
+
 .video-modal::after {
   content: '';
   position: absolute;
@@ -138,7 +138,7 @@
   z-index: -1;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
   .video-modal {
     width: 95%;

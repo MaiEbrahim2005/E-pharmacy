@@ -10,16 +10,16 @@ const HeroSection = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [isUploading, setIsUploading] = useState(false);
 
-  // دالة لفتح file selector
+  
   const handleUploadClick = () => {
     fileInputRef.current.click();
   };
 
-  // دالة لما المستخدم يختار ملف
+  
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
-      // Validate file type
+     
       const validTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'application/pdf'];
       if (!validTypes.includes(file.type)) {
         toast.error('Please select a valid file type (JPG, PNG, PDF)', {
@@ -29,7 +29,7 @@ const HeroSection = () => {
         return;
       }
       
-      // Validate file size (max 5MB)
+      
       if (file.size > 5 * 1024 * 1024) {
         toast.error('File size should be less than 5MB', {
           position: "top-right",
@@ -40,7 +40,7 @@ const HeroSection = () => {
       
       setSelectedFile(file);
       
-      // Show success toast
+      
       toast.success(
         <div>
           <strong>Prescription uploaded successfully!</strong>
@@ -54,7 +54,7 @@ const HeroSection = () => {
         }
       );
       
-      // Save file info to localStorage
+      
       const reader = new FileReader();
       reader.onloadend = () => {
         const fileData = {
@@ -70,13 +70,13 @@ const HeroSection = () => {
     }
   };
 
-  // دالة للـ Shop Now (حسب إذا كان في ملف مرفوع أو لا)
+  
   const handleShopNow = () => {
     if (selectedFile) {
-      // حالة 1: رفع صورة → يروح Checkout مع منتجات جاهزة
+  
       setIsUploading(true);
       
-      // المنتجات اللي هتتضاف تلقائياً
+     
       const prescriptionProducts = [
         { id: 1, name: "ImmunoBoost", price: 63.00, quantity: 1, image: "src/assets/images/products/product1.png", category: "Vitamins & Health Supplements", type: "Vitamin" },
         { id: 2, name: "MetaboTrim", price: 87.00, quantity: 1, image: "src/assets/images/products/product2.png", category: "Vitamins & Health Supplements", type: "Herbal" },
@@ -84,7 +84,7 @@ const HeroSection = () => {
         { id: 7, name: "AcneShield Gel", price: 42.00, quantity: 1, image: "src/assets/images/products/product7.png", category: "Prescription Medicines", type: "Cream" }
       ];
       
-      // حفظ في localStorage
+      
       localStorage.setItem('cart', JSON.stringify(prescriptionProducts));
       localStorage.setItem('isPrescriptionOrder', 'true');
       
@@ -101,7 +101,7 @@ const HeroSection = () => {
         }
       );
       
-      // التوجيه لصفحة Checkout بعد تأخير بسيط
+     
       setTimeout(() => {
         setIsUploading(false);
         navigate('/checkout');
@@ -112,7 +112,7 @@ const HeroSection = () => {
     }
   };
 
-  // دالة لإزالة الملف المختار
+  
   const handleRemoveFile = () => {
     setSelectedFile(null);
     fileInputRef.current.value = '';
@@ -202,7 +202,7 @@ const HeroSection = () => {
               <span>Upload Prescription</span>
             </button>
             
-            {/* Hidden file input */}
+           
             <input
               type="file"
               ref={fileInputRef}
@@ -213,7 +213,7 @@ const HeroSection = () => {
             />
           </div>
 
-          {/* Show selected file info */}
+         
           {selectedFile && (
             <div className="selected-file-info">
               <button 

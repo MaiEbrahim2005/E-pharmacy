@@ -1,4 +1,4 @@
-// src/App.jsx
+
 import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
@@ -36,7 +36,7 @@ function App() {
     localStorage.getItem("loggedIn") === "true"
   );
 
-  // Listen to localStorage changes (login/cart) — keep it for multi-tab sync
+  
   useEffect(() => {
     const handleStorageChange = () => {
       setIsLoggedIn(localStorage.getItem("loggedIn") === "true");
@@ -47,7 +47,7 @@ function App() {
     return () => window.removeEventListener('storage', handleStorageChange);
   }, []);
 
-  // Monthly reminder for chronic patients (Local Storage based)
+  
   useEffect(() => {
     const isChronic = localStorage.getItem("chronicPatient") === "true";
     const lastReminder = localStorage.getItem("lastReminderDate");
@@ -63,7 +63,7 @@ function App() {
         const diffDays = diffTime / (1000 * 60 * 60 * 24);
 
         if (diffDays >= 30) {
-          // Toast Notification instead of alert
+          
           toast.info(
             "💊 Friendly Reminder: It's time to take your monthly treatment. Stay healthy!",
             {
@@ -82,28 +82,27 @@ function App() {
     }
   }, []);
 
-  // Called by ShopPage when adding an item
+  
   const handleAddToCart = () => {
     setCartCount(prev => prev + 1);
   };
 
-  // Called on login
+  
   const handleLogin = () => {
     localStorage.setItem("loggedIn", "true");
     setIsLoggedIn(true);
   };
 
-  // Logout clears everything (you already had this)
+  
   const handleLogout = () => {
     localStorage.clear();
     setIsLoggedIn(false);
     setCartCount(0);
   };
 
-  // NEW: Clear cart (to be called after successful payment)
   const handleClearCart = () => {
-    localStorage.removeItem('cart');    // clear persisted cart
-    setCartCount(0);                    // update UI-counter in App
+    localStorage.removeItem('cart');    
+    setCartCount(0);                    
   };
 
   return (
@@ -114,7 +113,7 @@ function App() {
         onAddToCart={handleAddToCart}
         onLogin={handleLogin}
         onLogout={handleLogout}
-        onClearCart={handleClearCart}      // pass the new handler down
+        onClearCart={handleClearCart}      
       />
     </Router>
   );
@@ -123,21 +122,19 @@ function App() {
 function MainApp({ cartCount, isLoggedIn, onAddToCart, onLogin, onLogout, onClearCart }) {
   const location = useLocation();
 
-  // ⭐⭐⭐ هذا هو التعديل المطلوب ⭐⭐⭐
-  // يجيب كل الصفحات من أولها عند الانتقال بينها
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
   const hideNavbar = ['/login', '/register', '/thank-you'].includes(location.pathname);
 
-  // Protected routes
+  
   const protectedRoutes = ['/shop', '/checkout'];
   if (!isLoggedIn && protectedRoutes.includes(location.pathname)) {
     return <Navigate to="/login" replace />;
   }
 
-  // Prevent logged-in user from accessing Login page
+  
   if (isLoggedIn && location.pathname === '/login') {
     return <Navigate to="/home" replace />;
   }

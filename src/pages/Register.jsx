@@ -21,7 +21,7 @@ export default function RegisterPage({ onLogin }) {
       return;
     }
 
-    // حفظ البيانات في Local Storage
+   
     localStorage.setItem("userName", name);
     localStorage.setItem("userEmail", email);
     localStorage.setItem("userPassword", password);
@@ -31,13 +31,13 @@ export default function RegisterPage({ onLogin }) {
       onLogin();
     }
 
-    // عرض Toast notification
+   
     setToastMessage('Registration successful! 🎉');
     setShowToast(true);
 
     setTimeout(() => {
       setShowToast(false);
-      navigate('/home'); // التوجيه بعد Toast
+      navigate('/home'); 
     }, 2000);
   };
 

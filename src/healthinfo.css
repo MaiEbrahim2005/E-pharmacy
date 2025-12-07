@@ -1,4 +1,4 @@
-/* src/HealthInfo.css */
+
 .simple-health-page {
   padding: 20px;
   max-width: 600px;
@@ -119,7 +119,7 @@
   color: #333;
 }
 
-/* هاتف */
+
 @media (max-width: 768px) {
   .simple-health-page {
     padding: 15px;
