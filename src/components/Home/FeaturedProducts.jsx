@@ -36,7 +36,7 @@ const FeaturedProducts = () => {
     window.dispatchEvent(new Event('storage'));
   };
 
-  const categoriesFilter = ['All', 'Cardiology', 'Neurology', 'Pediatrics', 'Gynecology'];
+ const categoriesFilter = ['All', 'Supplement', 'Herbal', 'Flu Remedy'];
 
   const products = [
     {
@@ -105,10 +105,15 @@ const FeaturedProducts = () => {
     }
   ];
 
-  const slides = [
-    products.slice(0, 4),
-    products.slice(4, 8)
-  ];
+  const filteredProducts =
+  activeCategory === 'All'
+    ? products
+    : products.filter((p) => p.type === activeCategory);
+
+const slides = [
+  filteredProducts.slice(0, 4),
+  filteredProducts.slice(4, 8)
+];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -132,7 +137,11 @@ const FeaturedProducts = () => {
               role="tab"
               aria-selected={activeCategory === category}
               className={`category-btn ${activeCategory === category ? 'active' : ''}`}
-              onClick={() => setActiveCategory(category)}
+              onClick={() => {
+                setActiveCategory(category);
+                setCurrentSlide(0); 
+              }}
+
             >
               {category}
               {activeCategory === category && <div className="active-dot" aria-hidden="true"></div>}
