@@ -16,7 +16,6 @@ const Navbar = ({ cartCount, isLoggedIn, onLogout }) => {
     const path = location.pathname;
     if (path === '/' || path === '/home') setActiveLink('home');
     else if (path === '/about') setActiveLink('about');
-    else if (path === '/services') setActiveLink('services');
     else if (path === '/shop') setActiveLink('shop');
     else if (path === '/faq') setActiveLink('faq');
     else if (path === '/contact') setActiveLink('contact');
@@ -57,9 +56,6 @@ const Navbar = ({ cartCount, isLoggedIn, onLogout }) => {
           </li>
           <li>
             <a className={activeLink === 'about' ? 'active' : ''} onClick={() => handleNavigation('/about', 'about')}>About</a>
-          </li>
-          <li>
-            <a className={activeLink === 'services' ? 'active' : ''} onClick={() => handleNavigation('/services', 'services')}>Services</a>
           </li>
           <li>
             <a className={activeLink === 'shop' ? 'active' : ''} onClick={() => handleNavigation('/shop', 'shop')}>Shop</a>
@@ -126,7 +122,6 @@ const Navbar = ({ cartCount, isLoggedIn, onLogout }) => {
         <div className="mobile-menu">
           <a className={activeLink === 'home' ? 'active' : ''} onClick={() => handleNavigation('/', 'home')}>Home</a>
           <a className={activeLink === 'about' ? 'active' : ''} onClick={() => handleNavigation('/about', 'about')}>About</a>
-          <a className={activeLink === 'services' ? 'active' : ''} onClick={() => handleNavigation('/services', 'services')}>Services</a>
           <a className={activeLink === 'shop' ? 'active' : ''} onClick={() => handleNavigation('/shop', 'shop')}>Shop</a>
           <a className={activeLink === 'faq' ? 'active' : ''} onClick={() => handleNavigation('/faq', 'faq')}>FAQ</a>
           <a className={activeLink === 'contact' ? 'active' : ''} onClick={() => handleNavigation('/contact', 'contact')}>Contact</a>
