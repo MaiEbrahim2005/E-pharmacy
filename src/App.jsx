@@ -13,7 +13,6 @@ import Footer from './components/layout/Footer';
 
 import HomePage from './pages/HomePage';
 import About from './pages/About';
-// ⛔ امسحتي السطر: import Services from './pages/Services';
 import ShopPage from './pages/ShopPage';
 import FAQ from './pages/FAQ';
 import Contact from './pages/Contact';
@@ -124,6 +123,12 @@ function App() {
 function MainApp({ cartCount, isLoggedIn, onAddToCart, onLogin, onLogout, onClearCart }) {
   const location = useLocation();
 
+  // ⭐⭐⭐ هذا هو التعديل المطلوب ⭐⭐⭐
+  // يجيب كل الصفحات من أولها عند الانتقال بينها
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   const hideNavbar = ['/login', '/register', '/thank-you'].includes(location.pathname);
 
   // Protected routes
@@ -151,11 +156,9 @@ function MainApp({ cartCount, isLoggedIn, onAddToCart, onLogin, onLogout, onClea
         <Route path="/" element={<HomePage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/about" element={<About />} />
-        {/* ⛔ امسحتي السطر: <Route path="/services" element={<Services />} /> */}
         <Route path="/shop" element={<ShopPage onAddToCart={onAddToCart} />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/contact" element={<Contact />} />
-        {/* Pass onClearCart to Checkout so it can notify App after successful payment */}
         <Route path="/checkout" element={<Checkout onClearCart={onClearCart} />} />
         <Route path="/login" element={<Login onLogin={onLogin} />} />
         <Route path="/register" element={<Register onLogin={onLogin} />} />
@@ -168,4 +171,5 @@ function MainApp({ cartCount, isLoggedIn, onAddToCart, onLogin, onLogout, onClea
     </div>
   );
 }
+
 export default App;
