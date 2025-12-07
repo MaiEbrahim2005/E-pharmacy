@@ -106,6 +106,7 @@
 .nav-menu a:hover,
 .nav-menu a.active {
   color: var(--primary-color);
+  cursor: pointer;
 }
 
 .nav-menu a.active::after {
