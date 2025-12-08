@@ -45,7 +45,7 @@ const FeaturedProducts = () => {
       type: 'Supplement',
       price: 63.00,
       rating: 4.85,
-      image: '/src/assets/images/nutrition-capsules.jpg'
+      image: '/src/assets/images/products/product6.png'
     },
     {
       id: 2,
@@ -69,7 +69,7 @@ const FeaturedProducts = () => {
       type: 'Herbal',
       price: 96.00,
       rating: 4.85,
-      image: '/src/assets/images/vitamin-c.jpg'
+      image: '/src/assets/images/products/product8.png'
     },
     {
       id: 5,
@@ -77,7 +77,7 @@ const FeaturedProducts = () => {
       type: 'Supplement',
       price: 35.00,
       rating: 4.85,
-      image: '/src/assets/images/flu-syrup.jpg'
+      image: '/src/assets/images/vitamin-c.jpg'
     },
     {
       id: 6,
@@ -85,7 +85,7 @@ const FeaturedProducts = () => {
       type: 'Herbal',
       price: 58.00,
       rating: 4.85,
-      image: '/src/assets/images/skin-cream.jpg'
+      image: '/src/assets/images/nutrition-capsules.jpg'
     },
     {
       id: 7,
@@ -93,7 +93,7 @@ const FeaturedProducts = () => {
       type: 'Flu Remedy',
       price: 45.00,
       rating: 4.85,
-      image: '/src/assets/images/vitamin-c.jpg'
+      image: '/src/assets/images//products/product1.png'
     },
     {
       id: 8,
@@ -101,7 +101,7 @@ const FeaturedProducts = () => {
       type: 'Herbal',
       price: 72.00,
       rating: 4.85,
-      image: '/src/assets/images/skin-cream.jpg'
+      image: '/src/assets/images/products/product4.png'
     }
   ];
 
@@ -138,9 +138,9 @@ const slides = [
               aria-selected={activeCategory === category}
               className={`category-btn ${activeCategory === category ? 'active' : ''}`}
               onClick={() => {
-                setActiveCategory(category);
-                setCurrentSlide(0); 
-              }}
+              setActiveCategory(category);
+              setCurrentSlide(0); 
+            }}
 
             >
               {category}
