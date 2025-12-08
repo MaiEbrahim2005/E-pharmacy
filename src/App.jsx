@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
@@ -38,6 +37,15 @@ function App() {
 
   
   useEffect(() => {
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("/sw.js")
+        .then((reg) => console.log("Service Worker registered:", reg.scope))
+        .catch((err) => console.log("SW registration failed:", err));
+    }
+  }, []);
+
+  useEffect(() => {
     const handleStorageChange = () => {
       setIsLoggedIn(localStorage.getItem("loggedIn") === "true");
       setCartCount(JSON.parse(localStorage.getItem('cart') || '[]').length);
@@ -63,7 +71,6 @@ function App() {
         const diffDays = diffTime / (1000 * 60 * 60 * 24);
 
         if (diffDays >= 30) {
-          
           toast.info(
             "💊 Friendly Reminder: It's time to take your monthly treatment. Stay healthy!",
             {
@@ -75,25 +82,21 @@ function App() {
               draggable: true,
             }
           );
-
           localStorage.setItem("lastReminderDate", now.toDateString());
         }
       }
     }
   }, []);
 
-  
   const handleAddToCart = () => {
     setCartCount(prev => prev + 1);
   };
 
-  
   const handleLogin = () => {
     localStorage.setItem("loggedIn", "true");
     setIsLoggedIn(true);
   };
 
-  
   const handleLogout = () => {
     localStorage.clear();
     setIsLoggedIn(false);
@@ -128,13 +131,11 @@ function MainApp({ cartCount, isLoggedIn, onAddToCart, onLogin, onLogout, onClea
 
   const hideNavbar = ['/login', '/register', '/thank-you'].includes(location.pathname);
 
-  
   const protectedRoutes = ['/shop', '/checkout'];
   if (!isLoggedIn && protectedRoutes.includes(location.pathname)) {
     return <Navigate to="/login" replace />;
   }
 
-  
   if (isLoggedIn && location.pathname === '/login') {
     return <Navigate to="/home" replace />;
   }
