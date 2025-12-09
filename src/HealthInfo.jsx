@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./HealthInfo.css";
+import "./Healthinfo.css";
 
 const HealthInfo = () => {
   const [hasChronic, setHasChronic] = useState("");
