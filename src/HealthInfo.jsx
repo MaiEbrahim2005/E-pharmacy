@@ -1,8 +1,8 @@
-
 import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./HealthInfo.css";
+import "./Healthinfo.css";  // تأكد أن هذا مطابق لاسم الملف على GitHub
+
 const HealthInfo = () => {
   const [hasChronic, setHasChronic] = useState("");
   const [disease, setDisease] = useState("");
@@ -29,7 +29,7 @@ const HealthInfo = () => {
           if (reg) {
             reg.showNotification(title, {
               body: message,
-              icon: "/logo192.png", // اختياري
+              icon: "/logo192.png",
             });
           }
         });
@@ -48,7 +48,6 @@ const HealthInfo = () => {
       localStorage.setItem("chronicPatient", "true");
       toast.success("✅ Your health data has been saved successfully");
 
-      // Notification بعد حفظ بيانات المريض المزمن
       sendNotification(
         "Medication Reminder Activated",
         `You are marked as a chronic patient for ${disease.trim()}. You will receive reminders!`
