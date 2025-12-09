@@ -2,8 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./Healthinfo.css";
-
+import "./HealthInfo.css";
 const HealthInfo = () => {
   const [hasChronic, setHasChronic] = useState("");
   const [disease, setDisease] = useState("");
