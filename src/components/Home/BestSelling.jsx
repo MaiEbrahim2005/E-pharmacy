@@ -40,7 +40,7 @@ const BestSelling = () => {
       type: 'Vitamin',
       price: 63.00,
       rating: 4.8,
-      image: "/public/assets/images/ImmunoBoost.png"
+      image: "/assets/images/ImmunoBoost.png"
     },
     {
       id: 12, // غيرنا لـ 12 بدل 2
@@ -48,7 +48,7 @@ const BestSelling = () => {
       type: 'Herbal',
       price: 87.00,
       rating: 4.8,
-      image: "/public/assets/images/MetaboTrim.png"
+      image: "/assets/images/MetaboTrim.png"
     },
     {
       id: 13, // غيرنا لـ 13 بدل 3
@@ -56,7 +56,7 @@ const BestSelling = () => {
       type: 'Cream',
       price: 87.00,
       rating: 4.8,
-      image: "/public/assets/images/DermaGlow.png"
+      image: "/assets/images/DermaGlow.png"
     },
     {
       id: 14, // غيرنا لـ 14 بدل 4
@@ -64,7 +64,7 @@ const BestSelling = () => {
       type: 'Syrup',
       price: 42.00,
       rating: 4.85,
-      image: "/public/assets/images/CoughRelief Max.png"
+      image: "/assets/images/CoughRelief Max.png"
     },
     {
       id: 15, // غيرنا لـ 15 بدل 5
@@ -72,7 +72,7 @@ const BestSelling = () => {
       type: 'Vitamin',
       price: 12.00,
       rating: 4.8,
-      image: "/public/assets/images/NutriCore Essentials.png"
+      image: "/assets/images/NutriCore Essentials.png"
     },
     {
       id: 16, // غيرنا لـ 16 بدل 6
@@ -80,7 +80,7 @@ const BestSelling = () => {
       type: 'Herbal',
       price: 26.00,
       rating: 4.8,
-      image: "/public/assets/images/Slimvia Burn.png"
+      image: "/assets/images/Slimvia Burn.png"
     },
     {
       id: 17, // غيرنا لـ 17 بدل 7
@@ -88,7 +88,7 @@ const BestSelling = () => {
       type: 'Cream',
       price: 82.00,
       rating: 4.8,
-      image: "/public/assets/images/AcneShield Gel.png"
+      image: "/assets/images/AcneShield Gel.png"
     },
     {
       id: 18, // غيرنا لـ 18 بدل 8
@@ -96,7 +96,7 @@ const BestSelling = () => {
       type: 'Tablet',
       price: 36.00,
       rating: 4.8,
-      image: "/public/assets/images/FluAway Tabs.png"
+      image: "/assets/images/FluAway Tabs.png"
     },
   ];
 
