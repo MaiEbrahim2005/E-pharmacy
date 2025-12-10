@@ -7,7 +7,7 @@ const CategoriesSection = () => {
   const categories = [
     {
       name: "Nutrition & Weight",
-      image: "/public/assets/images/nutrition-weight.jpg",
+      image: "/assets/images/nutrition-weight.jpg",
     },
     {
       name: "Skin Essentials",
