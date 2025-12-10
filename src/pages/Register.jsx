@@ -21,9 +21,11 @@ export default function RegisterPage({ onLogin }) {
       return;
     }
 
-   
-    localStorage.setItem("userName", name);
-    localStorage.setItem("userEmail", email);
+    // ⚠️ إزالة هذا السطر: localStorage.clear();
+    
+    // حفظ البيانات بدون حذف localStorage
+    localStorage.setItem("userName", name.trim());
+    localStorage.setItem("userEmail", email.trim().toLowerCase());
     localStorage.setItem("userPassword", password);
     localStorage.setItem("loggedIn", "true");
 
@@ -31,7 +33,6 @@ export default function RegisterPage({ onLogin }) {
       onLogin();
     }
 
-   
     setToastMessage('Registration successful! 🎉');
     setShowToast(true);
 

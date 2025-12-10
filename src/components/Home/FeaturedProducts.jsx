@@ -45,7 +45,7 @@ const FeaturedProducts = () => {
       type: 'Supplement',
       price: 63.00,
       rating: 4.85,
-      image: '/src/assets/images/products/product6.png'
+      image: '/public/assets/images/products/product6.png'
     },
     {
       id: 2,
@@ -53,7 +53,7 @@ const FeaturedProducts = () => {
       type: 'Herbal',
       price: 84.00,
       rating: 4.85,
-      image: '/src/assets/images/skin-cream.jpg' 
+      image: '/public/assets/images/skin-cream.jpg' 
     },
     {
       id: 3,
@@ -61,7 +61,7 @@ const FeaturedProducts = () => {
       type: 'Flu Remedy',
       price: 42.00,
       rating: 4.85,
-      image: '/src/assets/images/flu-syrup.jpg'
+      image: '/public/assets/images/flu-syrup.jpg'
     },
     {
       id: 4,
@@ -69,7 +69,7 @@ const FeaturedProducts = () => {
       type: 'Herbal',
       price: 96.00,
       rating: 4.85,
-      image: '/src/assets/images/products/product8.png'
+      image: '/public/assets/images/products/product8.png'
     },
     {
       id: 5,
@@ -77,7 +77,7 @@ const FeaturedProducts = () => {
       type: 'Supplement',
       price: 35.00,
       rating: 4.85,
-      image: '/src/assets/images/vitamin-c.jpg'
+      image: '/public/assets/images/vitamin-c.jpg'
     },
     {
       id: 6,
@@ -85,7 +85,7 @@ const FeaturedProducts = () => {
       type: 'Herbal',
       price: 58.00,
       rating: 4.85,
-      image: '/src/assets/images/nutrition-capsules.jpg'
+      image: '/public/assets/images/nutrition-capsules.jpg'
     },
     {
       id: 7,
@@ -93,7 +93,7 @@ const FeaturedProducts = () => {
       type: 'Flu Remedy',
       price: 45.00,
       rating: 4.85,
-      image: '/src/assets/images//products/product1.png'
+      image: '/public/assets/images//products/product1.png'
     },
     {
       id: 8,
@@ -101,7 +101,7 @@ const FeaturedProducts = () => {
       type: 'Herbal',
       price: 72.00,
       rating: 4.85,
-      image: '/src/assets/images/products/product4.png'
+      image: '/public/assets/images/products/product4.png'
     }
   ];
 

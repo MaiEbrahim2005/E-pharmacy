@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import './HeroSection.css';
-import { FiUpload, FiShoppingCart } from "react-icons/fi";
+import { FiUpload } from "react-icons/fi";
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
@@ -78,10 +78,10 @@ const HeroSection = () => {
       
      
       const prescriptionProducts = [
-        { id: 1, name: "ImmunoBoost", price: 63.00, quantity: 1, image: "src/assets/images/products/product1.png", category: "Vitamins & Health Supplements", type: "Vitamin" },
-        { id: 2, name: "MetaboTrim", price: 87.00, quantity: 1, image: "src/assets/images/products/product2.png", category: "Vitamins & Health Supplements", type: "Herbal" },
-        { id: 5, name: "NutriCore Essentials", price: 36.00, quantity: 1, image: "src/assets/images/products/product5.png", category: "Prescription Medicines", type: "Vitamin" },
-        { id: 7, name: "AcneShield Gel", price: 42.00, quantity: 1, image: "src/assets/images/products/product7.png", category: "Prescription Medicines", type: "Cream" }
+        { id: 1, name: "ImmunoBoost", price: 63.00, quantity: 1, image: "/assets/images/products/product1.png", category: "Vitamins & Health Supplements", type: "Vitamin" },
+        { id: 2, name: "MetaboTrim", price: 87.00, quantity: 1, image: "/assets/images/products/product2.png", category: "Vitamins & Health Supplements", type: "Herbal" },
+        { id: 5, name: "NutriCore Essentials", price: 36.00, quantity: 1, image: "/assets/images/products/product5.png", category: "Prescription Medicines", type: "Vitamin" },
+        { id: 7, name: "AcneShield Gel", price: 42.00, quantity: 1, image: "/assets/images/products/product7.png", category: "Prescription Medicines", type: "Cream" }
       ];
       
       
@@ -145,7 +145,7 @@ const HeroSection = () => {
 
           <div className="large-image-container">
             <img
-              src="/src/assets/images/banner-img1.jpg"
+              src="/assets/images/banner-img1.jpg"
               alt="Assorted medicines and wellness products"
               className="large-image"
               onError={(e) => {
@@ -161,10 +161,10 @@ const HeroSection = () => {
         <aside className="left-content" aria-label="Intro and actions">
           <div className="clients-section" role="region" aria-label="Happy clients">
             <div className="circles-container" aria-hidden="true">
-              <img src="/src/assets/images/user1.png" className="circle-img" alt="Client avatar 1" />
-              <img src="/src/assets/images/user2.png" className="circle-img" alt="Client avatar 2" />
-              <img src="/src/assets/images/user3.png" className="circle-img" alt="Client avatar 3" />
-              <img src="/src/assets/images/user4.png" className="circle-img" alt="Client avatar 4" />
+              <img src="/assets/images/user1.png" className="circle-img" alt="Client avatar 1" />
+              <img src="/assets/images/user2.png" className="circle-img" alt="Client avatar 2" />
+              <img src="/assets/images/user3.png" className="circle-img" alt="Client avatar 3" />
+              <img src="/assets/images/user4.png" className="circle-img" alt="Client avatar 4" />
             </div>
             <div className="clients-info">
               <span className="clients-number">4k+</span>
@@ -227,7 +227,7 @@ const HeroSection = () => {
 
           <div className="small-image-container">
             <img
-              src="/src/assets/images/banner-img2.jpg"
+              src="/assets/images/banner-img2.jpg"
               alt="Assorted bottles on shelf"
               className="small-image"
               onError={(e) => {

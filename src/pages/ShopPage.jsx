@@ -8,15 +8,15 @@ const ShopPage = ({ onAddToCart }) => {
   const navigate = useNavigate();
 
   const products = [
-    { id: 1, name: "ImmunoBoost", price: 63.00, rating: 4.8, image:"src/assets/images/products/product1.png", category: "Vitamins & Health Supplements", type: "Vitamin" },
-    { id: 2, name: "MetaboTrim", price: 87.00, rating: 4.8, image: "src/assets/images/products/product2.png", category: "Vitamins & Health Supplements", type: "Herbal" },
-    { id: 3, name: "DermaGlow", price: 55.00, rating: 4.8, image: "src/assets/images/products/product3.png", category: "Personal Wellness & Hygiene", type: "Cream" },
-    { id: 4, name: "CoughRelief Max", price: 82.00, rating: 4.8, image: "src/assets/images/products/product4.png", category: "Personal Wellness & Hygiene", type: "Syrup" },
-    { id: 5, name: "NutriCore Essentials", price: 36.00, rating: 4.8, image: "src/assets/images/products/product5.png", category: "Prescription Medicines", type: "Vitamin" },
-    { id: 6, name: "Slimvia Burn", price: 63.00, rating: 4.8, image: "src/assets/images/products/product6.png", category: "Vitamins & Health Supplements", type: "Herbal" },
-    { id: 7, name: "AcneShield Gel", price: 42.00, rating: 4.8, image: "src/assets/images/products/product7.png", category: "Prescription Medicines", type: "Cream" },
-    { id: 8, name: "FluAway Tabs", price: 12.00, rating: 4.8, image: "src/assets/images/products/product8.png", category: "Vitamins & Health Supplements", type: "Tablets" },
-    { id: 9, name: "VitalEase Multivitamins", price: 26.00, rating: 4.8, image: "src/assets/images/products/product9.png", category: "Vitamins & Health Supplements", type: "Supplements" }
+    { id: 1, name: "ImmunoBoost", price: 63.00, rating: 4.8, image:"/assets/images/products/product1.png", category: "Vitamins & Health Supplements", type: "Vitamin" },
+    { id: 2, name: "MetaboTrim", price: 87.00, rating: 4.8, image: "/assets/images/products/product2.png", category: "Vitamins & Health Supplements", type: "Herbal" },
+    { id: 3, name: "DermaGlow", price: 55.00, rating: 4.8, image: "/assets/images/products/product3.png", category: "Personal Wellness & Hygiene", type: "Cream" },
+    { id: 4, name: "CoughRelief Max", price: 82.00, rating: 4.8, image: "/assets/images/products/product4.png", category: "Personal Wellness & Hygiene", type: "Syrup" },
+    { id: 5, name: "NutriCore Essentials", price: 36.00, rating: 4.8, image: "/assets/images/products/product5.png", category: "Prescription Medicines", type: "Vitamin" },
+    { id: 6, name: "Slimvia Burn", price: 63.00, rating: 4.8, image: "/assets/images/products/product6.png", category: "Vitamins & Health Supplements", type: "Herbal" },
+    { id: 7, name: "AcneShield Gel", price: 42.00, rating: 4.8, image: "/assets/images/products/product7.png", category: "Prescription Medicines", type: "Cream" },
+    { id: 8, name: "FluAway Tabs", price: 12.00, rating: 4.8, image: "/assets/images/products/product8.png", category: "Vitamins & Health Supplements", type: "Tablets" },
+    { id: 9, name: "VitalEase Multivitamins", price: 26.00, rating: 4.8, image: "/assets/images/products/product9.png", category: "Vitamins & Health Supplements", type: "Supplements" }
   ];
 
   const categories = [

@@ -1,14 +1,11 @@
-
 import React, { useState, useEffect } from 'react';
-import { FiSearch, FiShoppingCart, FiUser, FiX } from 'react-icons/fi';
+import { FiShoppingCart, FiUser } from 'react-icons/fi';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = ({ cartCount, isLoggedIn, onLogout }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('home');
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -39,7 +36,12 @@ const Navbar = ({ cartCount, isLoggedIn, onLogout }) => {
   };
 
   const handleLogoutClick = () => {
-    if (onLogout) onLogout();
+    // فقط استدعي دالة onLogout من App.js
+    if (onLogout) {
+      onLogout();
+    }
+    
+    // إعادة التوجيه للرئيسية
     navigate('/home');
   };
 
@@ -47,7 +49,7 @@ const Navbar = ({ cartCount, isLoggedIn, onLogout }) => {
     <nav className="navbar">
       <div className="nav-container">
         <div className="logo">
-          <img src="src/assets/images/logo.png" alt="Pharmez Logo" />
+          <img src="/assets/images/logo.png" alt="Pharmez Logo" />
         </div>
 
         <ul className="nav-menu">
@@ -72,10 +74,6 @@ const Navbar = ({ cartCount, isLoggedIn, onLogout }) => {
         </ul>
 
         <div className="nav-icons">
-          {/* <button onClick={() => setIsSearchOpen(!isSearchOpen)}>
-            {isSearchOpen ? <FiX /> : <FiSearch />}
-          </button> */}
-
           <button
             className={`cart-icon ${activeLink === 'cart' || activeLink === 'checkout' ? 'active' : ''}`}
             onClick={handleCartClick}
@@ -85,9 +83,17 @@ const Navbar = ({ cartCount, isLoggedIn, onLogout }) => {
           </button>
 
           {isLoggedIn ? (
-            <button onClick={handleLogoutClick}>Logout</button>
+            <button 
+              onClick={handleLogoutClick}
+              className="logout-btn"
+            >
+              Logout
+            </button>
           ) : (
-            <button onClick={() => navigate('/login')}>
+            <button 
+              onClick={() => navigate('/login')}
+              className="login-btn"
+            >
               <FiUser />
             </button>
           )}
@@ -97,24 +103,6 @@ const Navbar = ({ cartCount, isLoggedIn, onLogout }) => {
           ☰
         </div>
       </div>
-
-      {isSearchOpen && (
-        <div className="search-bar">
-          <input
-            type="text"
-            placeholder="Search for medicines..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            autoFocus
-          />
-          <button onClick={() => {
-            console.log('Searching for:', searchQuery);
-            setIsSearchOpen(false);
-          }}>
-            Search
-          </button>
-        </div>
-      )}
 
       {isMenuOpen && (
         <div className="mobile-menu">
@@ -130,6 +118,19 @@ const Navbar = ({ cartCount, isLoggedIn, onLogout }) => {
           >
             {cartCount > 0 ? `Checkout (${cartCount})` : 'Cart (0)'}
           </a>
+          
+          {isLoggedIn ? (
+            <a onClick={handleLogoutClick} className="logout-mobile">
+              Logout
+            </a>
+          ) : (
+            <a onClick={() => {
+              navigate('/login');
+              setIsMenuOpen(false);
+            }}>
+              Login
+            </a>
+          )}
         </div>
       )}
     </nav>

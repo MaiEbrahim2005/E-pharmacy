@@ -32,7 +32,7 @@ const AboutHero = ({ onWatchVideo }) => {
           
           <div className="about-hero-image">
             <img 
-              src="/src/assets/about/aboutimg.jpg" 
+              src="/assets/about/aboutimg.jpg" 
               alt="Pharmacy Team" 
               onError={(e) => {
                 e.target.onerror = null;

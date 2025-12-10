@@ -10,25 +10,25 @@ const Testimonials = () => {
         id: 1,
         name: "Jennifer Troyer",
         role: "Administrator",
-        avatar: "/src/assets/images/Jennifer-Troyer.jpg",
+        avatar: "/public/assets/images/Jennifer-Troyer.jpg",
       },
       {
         id: 2,
         name: "Fergus Douchebag",
         role: "Happy Customer",
-        avatar: "/src/assets/images/Fergu-Douchebag.jpg",
+        avatar: "/public/assets/images/Fergu-Douchebag.jpg",
       },
       {
         id: 3,
         name: "lucy Smith",
         role: "Satisfied Customer",
-        avatar: "/src/assets/images/lucy Smith.jpg",
+        avatar: "/public/assets/images/lucy Smith.jpg",
       },
       {
         id: 4,
         name: "John Smith",
         role: "Satisfied Client",
-        avatar: "/src/assets/images/John-Smith.jpg",
+        avatar: "/public/assets/images/John-Smith.jpg",
       }
     ];
   

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
@@ -8,38 +8,59 @@ export default function LoginPage({ onLogin }) {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
+  // تحقق تلقائي إذا كان المستخدم مسجل دخول
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem("loggedIn");
+    if (isLoggedIn === "true") {
+      navigate('/home');
+    }
+  }, [navigate]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    
+    const enteredEmail = email.trim().toLowerCase();
+    const enteredPassword = password;
     
     const storedEmail = localStorage.getItem("userEmail");
     const storedPassword = localStorage.getItem("userPassword");
-
+    
+    // التحقق من وجود بيانات
     if (!storedEmail || !storedPassword) {
       setError("No account found. Please register first.");
       return;
     }
-
-   
-    if (email === storedEmail && password === storedPassword) {
+    
+    // تحقق من المطابقة
+    if (enteredEmail === storedEmail && enteredPassword === storedPassword) {
       localStorage.setItem("loggedIn", "true");
-
+      
       if (onLogin) {
         onLogin();
       }
-
+      
       navigate('/home');
     } else {
-      setError("Email or password is incorrect.");
+      setError("Email or password is incorrect. Please try again.");
     }
   };
 
   return (
     <div className="auth-container">
       <form className="auth-form" onSubmit={handleSubmit}>
-        <h2 className="auth-title">Welcome </h2>
+        <h2 className="auth-title">Welcome</h2>
 
-        {error && <p style={{ color: "red" }}>{error}</p>}
+        {error && (
+          <div style={{
+            color: "red", 
+            padding: "10px", 
+            background: "#ffe6e6", 
+            borderRadius: "5px",
+            marginBottom: "15px"
+          }}>
+            {error}
+          </div>
+        )}
 
         <input
           type="email"
@@ -68,7 +89,12 @@ export default function LoginPage({ onLogin }) {
             <input type="checkbox" />
             Remember me
           </label>
-          <a href="#">Lost Password?</a>
+          <a href="#" onClick={(e) => {
+            e.preventDefault();
+            alert("Please contact support to reset your password.");
+          }}>
+            Lost Password?
+          </a>
         </div>
 
         <div className="auth-link">

@@ -98,9 +98,13 @@ function App() {
   };
 
   const handleLogout = () => {
-    localStorage.clear();
+    // حذف حالة الدخول فقط، والحفاظ على بيانات الحساب!
+    localStorage.removeItem("loggedIn");
+    localStorage.removeItem("cart"); // إزالة سلة التسجيل
     setIsLoggedIn(false);
     setCartCount(0);
+    
+    console.log('✅ Logout successful - Account data preserved');
   };
 
   const handleClearCart = () => {

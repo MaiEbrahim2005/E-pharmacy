@@ -17,7 +17,7 @@ const OurProcess = () => {
         <div className="process-content">
           <div className="process-left">
             <img 
-              src="/src/assets/images/dlivery-img.jpg" 
+              src="/public/assets/images/dlivery-img.jpg" 
               alt="Delivery Process" 
               className="process-image" 
             />

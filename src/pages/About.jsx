@@ -41,7 +41,7 @@ const About = () => {
             <div className="video-wrapper">
               <video 
                 ref={videoRef}
-                src="/src/assets/about/abtvideo.mp4" 
+                src="/assets/about/abtvideo.mp4" 
                 controls 
                 className="about-video"
                 playsInline

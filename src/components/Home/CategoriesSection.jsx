@@ -7,19 +7,19 @@ const CategoriesSection = () => {
   const categories = [
     {
       name: "Nutrition & Weight",
-      image: "/src/assets/images/nutrition-weight.jpg",
+      image: "/public/assets/images/nutrition-weight.jpg",
     },
     {
       name: "Skin Essentials",
-      image: "/src/assets/images/skin-essentials.jpg",
+      image: "/public/assets/images/skin-essentials.jpg",
     },
     {
       name: "Vitamins & Minerals",
-      image: "/src/assets/images/vitamins-minerals.jpg",
+      image: "/public/assets/images/vitamins-minerals.jpg",
     },
     {
       name: "Cold & Flu Care",
-      image: "/src/assets/images/cold-flu-care.jpg",
+      image: "/public/assets/images/cold-flu-care.jpg",
     }
   ];
 
