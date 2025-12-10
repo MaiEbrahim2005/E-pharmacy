@@ -11,15 +11,15 @@ const CategoriesSection = () => {
     },
     {
       name: "Skin Essentials",
-      image: "/public/assets/images/skin-essentials.jpg",
+      image: "/assets/images/skin-essentials.jpg",
     },
     {
       name: "Vitamins & Minerals",
-      image: "/public/assets/images/vitamins-minerals.jpg",
+      image: "/assets/images/vitamins-minerals.jpg",
     },
     {
       name: "Cold & Flu Care",
-      image: "/public/assets/images/cold-flu-care.jpg",
+      image: "/assets/images/cold-flu-care.jpg",
     }
   ];
 
