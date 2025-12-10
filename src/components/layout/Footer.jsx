@@ -9,7 +9,7 @@ const Footer = () => {
         
         <div className="footer-section">
           <div className="logo-section">
-            <img src="/public/assets/images/footer-icon.png" alt="Pharmez" className="footer-logo-img" />
+            <img src="/assets/images/footer-icon.png" alt="Pharmez" className="footer-logo-img" />
             <a href='#home' className="footer-logo-text">Pharmez</a>
           </div>
           

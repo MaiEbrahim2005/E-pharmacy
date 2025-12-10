@@ -9,7 +9,7 @@ const Offers = () => {
           <div className="offers-grid">
             <article className="offer-card" aria-label="Vitamins & Supplements Offer">
               <div className="offer-image">
-                <img src="/public/assets/images/promotion-banner1.jpg" alt="Vitamins and supplements" />
+                <img src="/assets/images/promotion-banner1.jpg" alt="Vitamins and supplements" />
               </div>
               <div className="offer-content">
                 <div className="offer-percentage">
@@ -22,7 +22,7 @@ const Offers = () => {
             </article>
             <article className="offer-card" aria-label="Baby & Childcare Offer">
               <div className="offer-image">
-                <img src="/public/assets/images/promotion-banner2.jpg" alt="Baby and childcare" />
+                <img src="/assets/images/promotion-banner2.jpg" alt="Baby and childcare" />
               </div>
               <div className="offer-content">
                 <div className="offer-percentage">
@@ -37,7 +37,7 @@ const Offers = () => {
 
             <article className="offer-card" aria-label="Personal care & Wellness Offer">
               <div className="offer-image">
-                <img src="/public/assets/images/promotion-banner3.jpg" alt="Personal care and wellness" />
+                <img src="/assets/images/promotion-banner3.jpg" alt="Personal care and wellness" />
               </div>
               <div className="offer-content">
                 <div className="offer-percentage">
